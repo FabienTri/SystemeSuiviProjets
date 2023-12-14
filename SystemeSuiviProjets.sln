@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemeSuiviProjets.SharedK
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemeSuiviProjets.Core", "SystemeSuiviProjets.Core\SystemeSuiviProjets.Core.csproj", "{0E34419D-38C8-466B-8570-0B11C814AFD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemeSuiviProjets.Infrastructure", "SystemeSuiviProjets.Infrastructure\SystemeSuiviProjets.Infrastructure.csproj", "{0C8B3A6C-4557-4B00-A409-0A08E0A39268}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0E34419D-38C8-466B-8570-0B11C814AFD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E34419D-38C8-466B-8570-0B11C814AFD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E34419D-38C8-466B-8570-0B11C814AFD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C8B3A6C-4557-4B00-A409-0A08E0A39268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C8B3A6C-4557-4B00-A409-0A08E0A39268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C8B3A6C-4557-4B00-A409-0A08E0A39268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C8B3A6C-4557-4B00-A409-0A08E0A39268}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
