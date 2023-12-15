@@ -1,20 +1,23 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemeSuiviProjets.WindowsApp", "SystemeSuiviProjets.WindowsApp\SystemeSuiviProjets.WindowsApp.csproj", "{16221F5D-692B-4D52-9C0E-3051196CCE96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemeSuiviProjets.WindowsApp", "SystemeSuiviProjets.WindowsApp\SystemeSuiviProjets.WindowsApp.csproj", "{16221F5D-692B-4D52-9C0E-3051196CCE96}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemeSuiviProjets.SharedKernel", "SystemeSuiviProjets.SharedKernel\SystemeSuiviProjets.SharedKernel.csproj", "{25C0DE8C-F36E-4CC9-9198-0C7A1FE1CE34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemeSuiviProjets.Core", "SystemeSuiviProjets.Core\SystemeSuiviProjets.Core.csproj", "{0E34419D-38C8-466B-8570-0B11C814AFD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemeSuiviProjets.Core", "SystemeSuiviProjets.Core\SystemeSuiviProjets.Core.csproj", "{0E34419D-38C8-466B-8570-0B11C814AFD1}"
 	ProjectSection(ProjectDependencies) = postProject
 		{25C0DE8C-F36E-4CC9-9198-0C7A1FE1CE34} = {25C0DE8C-F36E-4CC9-9198-0C7A1FE1CE34}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemeSuiviProjets.Infrastructure", "SystemeSuiviProjets.Infrastructure\SystemeSuiviProjets.Infrastructure.csproj", "{0C8B3A6C-4557-4B00-A409-0A08E0A39268}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemeSuiviProjets.Infrastructure", "SystemeSuiviProjets.Infrastructure\SystemeSuiviProjets.Infrastructure.csproj", "{0C8B3A6C-4557-4B00-A409-0A08E0A39268}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0E34419D-38C8-466B-8570-0B11C814AFD1} = {0E34419D-38C8-466B-8570-0B11C814AFD1}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemeSuiviProjets.ConsoleTestApp", "SystemeSuiviProjets.ConsoleTestApp\SystemeSuiviProjets.ConsoleTestApp.csproj", "{B12A6EA8-2A17-47B6-AAB7-9D2A5CD4569B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemeSuiviProjets.ConsoleTestApp", "SystemeSuiviProjets.ConsoleTestApp\SystemeSuiviProjets.ConsoleTestApp.csproj", "{B12A6EA8-2A17-47B6-AAB7-9D2A5CD4569B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
