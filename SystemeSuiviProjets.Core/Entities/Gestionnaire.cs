@@ -1,6 +1,6 @@
 ﻿namespace SystemeSuiviProjets.Core
 {
-    public class Gestionnaire : Employe
+    public class Gestionnaire : Employé
     {
     }
 }

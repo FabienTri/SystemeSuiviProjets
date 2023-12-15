@@ -2,12 +2,12 @@
 
 namespace SystemeSuiviProjets.Core
 {
-    public class Employe : Utilisateur
+    public class Employé : Utilisateur
     {
         public string Nom { get; set; }
-        public string Prenom { get; set; }
+        public string Prénom { get; set; }
         public string Adresse { get; set; }
-        public string Telephone { get; set; }
+        public string Téléphone { get; set; }
         public DateOnly DateEmbauche { get; set; }
     }
 }

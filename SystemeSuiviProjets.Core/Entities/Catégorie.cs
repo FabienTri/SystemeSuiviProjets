@@ -2,7 +2,7 @@
 
 namespace SystemeSuiviProjets.Core
 {
-    public class Categorie : BaseEntity
+    public class Catégorie : BaseEntity
     {
         public string Description { get; set; }
         public long TarifFacturationHeure { get; set; }

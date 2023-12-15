@@ -1,6 +1,6 @@
 ﻿namespace SystemeSuiviProjets.Core
 {
-    public class Professionnel : Employe
+    public class Professionnel : Employé
     {
     }
 }
