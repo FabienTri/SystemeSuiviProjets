@@ -16,4 +16,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SystemeSuiviProjets.Core\SystemeSuiviProjets.Core.csproj" />
+    <ProjectReference Include="..\SystemeSuiviProjets.Infrastructure\SystemeSuiviProjets.Infrastructure.csproj" />
+    <ProjectReference Include="..\SystemeSuiviProjets.SharedKernel\SystemeSuiviProjets.SharedKernel.csproj" />
+  </ItemGroup>
 </Project>
