@@ -2,8 +2,8 @@
 {
     public interface ISubject
     {
-        void Attach(IObserver o);
-        void Detach(IObserver o);
-        void Notify();
+        public void Attach(IObserver o);
+        public void Detach(IObserver o);
+        public void Notify();
     }
 }
