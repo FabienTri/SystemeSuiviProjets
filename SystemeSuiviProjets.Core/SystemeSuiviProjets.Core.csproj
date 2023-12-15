@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DesignPatterns\ObserverDesignPattern\IObserver.cs" />
+    <Compile Include="DesignPatterns\ObserverDesignPattern\ISubject.cs" />
     <Compile Include="Entities\Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specifications\BaseSpecification.cs" />
