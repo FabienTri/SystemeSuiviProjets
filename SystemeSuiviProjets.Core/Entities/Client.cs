@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SystemeSuiviProjets.Core
+﻿namespace SystemeSuiviProjets.Core
 {
     public class Client : Utilisateur
     {
