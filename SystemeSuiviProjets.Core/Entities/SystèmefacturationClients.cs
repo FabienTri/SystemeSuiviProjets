@@ -2,7 +2,7 @@
 
 namespace SystemeSuiviProjets.Core
 {
-    public class SystèmePaiementProfessionnels : BaseEntity
+    public class SystèmeFacturationClients : BaseEntity
     {
     }
 }
