@@ -2,14 +2,16 @@
 
 namespace SystemeSuiviProjets.Core
 {
-    public class Catégorie : BaseEntity
+    public class Catégorie(string description, long tarifFacturationHeure, long tarifFacturationJour,
+        long tarifFacturationSemaine, long tarifPaiementHeure, long tarifPaiementJour, long tarifPaiementSemaine)
+        : BaseEntity
     {
-        public string Description { get; set; }
-        public long TarifFacturationHeure { get; set; }
-        public long TarifFacturationJour { get; set; }
-        public long TarifFacturationSemaine { get; set; }
-        public long TarifPaiementHeure { get; set; }
-        public long TarifPaiementJour { get; set; }
-        public long TarifPaiementSemaine { get; set; }
+        public string Description { get; set; } = description;
+        public long TarifFacturationHeure { get; set; } = tarifFacturationHeure;
+        public long TarifFacturationJour { get; set; } = tarifFacturationJour;
+        public long TarifFacturationSemaine { get; set; } = tarifFacturationSemaine;
+        public long TarifPaiementHeure { get; set; } = tarifPaiementHeure;
+        public long TarifPaiementJour { get; set; } = tarifPaiementJour;
+        public long TarifPaiementSemaine { get; set; } = tarifPaiementSemaine;
     }
 }
