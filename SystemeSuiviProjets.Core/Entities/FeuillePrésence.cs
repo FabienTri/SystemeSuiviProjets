@@ -15,6 +15,14 @@ namespace SystemeSuiviProjets.Core
         public DateTime DateCréation { get; private set; } = dateCréation;
         public DateTime DateDernièreModification { get; set; } = dateCréation;
 
-        public List<LigneFeuillePrésence> LignesFeuillePrésence { get; set; } = [];
+        public List<LigneFeuillePrésence> LignesFeuillePrésence { get; private set; } = [];
+        public void AddLigneFeuillePrésence(LigneFeuillePrésence ligneFeuillePrésence)
+        {
+            LignesFeuillePrésence.Add(ligneFeuillePrésence);
+        }
+        public void RemoveLigneFeuillePrésence(LigneFeuillePrésence ligneFeuillePrésence)
+        {
+            LignesFeuillePrésence.Remove(ligneFeuillePrésence);
+        }
     }
 }
