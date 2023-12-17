@@ -8,7 +8,7 @@ namespace SystemeSuiviProjets.Infrastructure
         public SystèmeSuiviProjetsContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<SystèmeSuiviProjetsContext>();
-            optionsBuilder.UseSqlServer(@"Server=.;Database=SystèmeGestionStationServiceDB;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer(@"Server=.;Database=SystèmeSuiviProjetsDB;Trusted_Connection=True;");
 
             return new SystèmeSuiviProjetsContext(optionsBuilder.Options);
         }

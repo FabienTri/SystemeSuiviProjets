@@ -24,7 +24,7 @@ namespace SystemeSuiviProjets.Infrastructure
         public SystèmeSuiviProjetsContext(DbContextOptions options) : base(options) { }
 
         public SystèmeSuiviProjetsContext() : base(new DbContextOptionsBuilder<SystèmeSuiviProjetsContext>()
-                    .UseSqlServer(@"Server=.;Database=SystèmeGestionStationServiceDB;Trusted_Connection=True;")
+                    .UseSqlServer(@"Server=.;Database=SystèmeSuiviProjetsDB;Trusted_Connection=True;")
                     .Options)
         { }
     }
