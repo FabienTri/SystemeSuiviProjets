@@ -2,9 +2,9 @@
 
 namespace SystemeSuiviProjets.Core
 {
-    public class Utilisateur : BaseEntity
+    public class Utilisateur(string nomConnexion, string motDePasse) : BaseEntity
     {
-        public string NomConnexion { get; set; }
-        public string MotDePasse { get; set; }
+        public string NomConnexion { get; set; } = nomConnexion;
+        public string MotDePasse { get; set; } = motDePasse;
     }
 }
