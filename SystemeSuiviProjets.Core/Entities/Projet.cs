@@ -12,5 +12,7 @@ namespace SystemeSuiviProjets.Core
         public long BudgetTotal { get; set; } = budgetTotal;
 
         public List<EstAssigné> Professionnels { get; set; } = [];
+
+        public List<LigneFeuillePrésence> LignesFeuillePrésence { get; set; } = [];
     }
 }
