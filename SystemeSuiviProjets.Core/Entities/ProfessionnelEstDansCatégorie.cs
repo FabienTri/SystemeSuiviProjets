@@ -3,8 +3,8 @@ using SystemeSuiviProjets.SharedKernel;
 
 namespace SystemeSuiviProjets.Core
 {
-    public class ProfessionnelEstDansCatégorie : BaseEntity
+    public class ProfessionnelEstDansCatégorie(DateOnly dateAffectation) : BaseEntity
     {
-        public DateOnly DateAffectation { get; set; }
+        public DateOnly DateAffectation { get; set; } = dateAffectation;
     }
 }
