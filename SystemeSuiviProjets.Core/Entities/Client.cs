@@ -10,7 +10,5 @@ namespace SystemeSuiviProjets.Core
         public string Téléphone { get; set; } = téléphone;
 
         public List<Projet> Projets { get; set; } = [];
-
-        public SystèmeFacturationClients SystèmeFacturationClients { get; set; }
     }
 }
