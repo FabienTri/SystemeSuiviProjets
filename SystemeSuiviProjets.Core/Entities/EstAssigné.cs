@@ -3,14 +3,28 @@ using SystemeSuiviProjets.SharedKernel;
 
 namespace SystemeSuiviProjets.Core
 {
-    public class EstAssigné(Professionnel professionnel, Projet projet, DateOnly dateAssignation) : BaseEntity
+    public class EstAssigné : BaseEntity
     {
-        public int ProfessionnelId { get; set; } = professionnel.Id;
-        public Professionnel Professionnel { get; private set; } = professionnel;
+        public int ProfessionnelId { get; set; }
+        public Professionnel Professionnel { get; private set; }
 
-        public int ProjetId { get; set; } = projet.Id;
-        public Projet Projet { get; private set; } = projet;
+        public int ProjetId { get; set; }
+        public Projet Projet { get; private set; }
 
-        public DateOnly DateAssignation { get; private set; } = dateAssignation;
+        public DateOnly DateAssignation { get; private set; }
+
+        public EstAssigné()
+        {
+            // EF Core needs this one to materialize collections from DB Set
+        }
+
+        public EstAssigné(Professionnel professionnel, Projet projet, DateOnly dateAssignation)
+        {
+            ProfessionnelId = professionnel.Id;
+            Professionnel = professionnel;
+            ProjetId = projet.Id;
+            Projet = projet;
+            DateAssignation = dateAssignation;
+        }
     }
 }
