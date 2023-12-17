@@ -10,5 +10,7 @@ namespace SystemeSuiviProjets.Core
         public List<ProfessionnelEstDansCatégorie> Catégories { get; set; } = [];
 
         public List<EstAssigné> Projets { get; set; } = [];
+
+        public SystèmePaiementProfessionnels SystèmePaiementProfessionnels { get; set; }
     }
 }
