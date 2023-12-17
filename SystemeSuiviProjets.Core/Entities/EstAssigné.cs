@@ -11,6 +11,6 @@ namespace SystemeSuiviProjets.Core
         public int ProjetId { get; set; } = projet.Id;
         public Projet Projet { get; private set; } = projet;
 
-        public DateOnly DateAssignation { get; set; } = dateAssignation;
+        public DateOnly DateAssignation { get; private set; } = dateAssignation;
     }
 }
