@@ -9,7 +9,8 @@ namespace SystemeSuiviProjets.Core
         public int SystèmePaiementProfessionnelsId { get; set; }
         public SystèmePaiementProfessionnels SystèmePaiementProfessionnels { get; private set; }
 
-        public DateRange Période { get; set; }
+        public DateTime DateDébutPériode { get; private set; }
+        public DateTime DateFinPériode { get; private set; }
         public DateTime DateCréation { get; private set; }
         public DateTime DateDernièreModification { get; set; }
 
@@ -29,11 +30,12 @@ namespace SystemeSuiviProjets.Core
         }
 
         public FeuillePrésence(SystèmePaiementProfessionnels systèmePaiementProfessionnels,
-            DateRange période, DateTime dateCréation)
+            DateTime dateDébutPériode, DateTime dateFinPériode, DateTime dateCréation)
         {
             SystèmePaiementProfessionnelsId = systèmePaiementProfessionnels.Id;
             SystèmePaiementProfessionnels = systèmePaiementProfessionnels;
-            Période = période;
+            DateDébutPériode = dateDébutPériode;
+            DateFinPériode = dateFinPériode;
             DateCréation = dateCréation;
             DateDernièreModification = dateCréation;
             LignesFeuillePrésence = [];
