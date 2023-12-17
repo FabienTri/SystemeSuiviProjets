@@ -8,6 +8,10 @@ namespace SystemeSuiviProjets.Core
         public string NomConnexion { get; set; } = nomConnexion;
         public string MotDePasse { get; set; } = motDePasse;
 
-        public List<Session> Sessions { get; set; } = [];
+        public List<Session> Sessions { get; private set; } = [];
+        public void AddSession(Session session)
+        {
+            Sessions.Add(session);
+        }
     }
 }
