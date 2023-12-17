@@ -3,8 +3,8 @@ using SystemeSuiviProjets.SharedKernel;
 
 namespace SystemeSuiviProjets.Core
 {
-    public class EstAssigné : BaseEntity
+    public class EstAssigné(DateOnly dateAssignation) : BaseEntity
     {
-        public DateOnly DateAssignation { get; set; }
+        public DateOnly DateAssignation { get; set; } = dateAssignation;
     }
 }
