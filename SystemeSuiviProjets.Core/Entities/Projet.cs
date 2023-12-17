@@ -14,8 +14,24 @@ namespace SystemeSuiviProjets.Core
 
         public long BudgetTotal { get; set; } = budgetTotal;
 
-        public List<EstAssigné> Professionnels { get; set; } = [];
+        public List<EstAssigné> Professionnels { get; private set; } = [];
+        public void AddEstAssigné(EstAssigné estAssigné)
+        {
+            Professionnels.Add(estAssigné);
+        }
+        public void RemoveEstAssigné(EstAssigné estAssigné)
+        {
+            Professionnels.Remove(estAssigné);
+        }
 
-        public List<LigneFeuillePrésence> LignesFeuillePrésence { get; set; } = [];
+        public List<LigneFeuillePrésence> LignesFeuillePrésence { get; private set; } = [];
+        public void AddLigneFeuillePrésence(LigneFeuillePrésence ligneFeuillePrésence)
+        {
+            LignesFeuillePrésence.Add(ligneFeuillePrésence);
+        }
+        public void RemoveLigneFeuillePrésence(LigneFeuillePrésence ligneFeuillePrésence)
+        {
+            LignesFeuillePrésence.Remove(ligneFeuillePrésence);
+        }
     }
 }
