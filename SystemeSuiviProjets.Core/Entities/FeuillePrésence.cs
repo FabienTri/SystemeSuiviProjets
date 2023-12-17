@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SystemeSuiviProjets.SharedKernel;
 
 namespace SystemeSuiviProjets.Core
@@ -12,5 +13,7 @@ namespace SystemeSuiviProjets.Core
         public DateRange Période { get; set; } = période;
         public DateTime DateCréation { get; set; } = dateCréation;
         public DateTime DateDernièreModification { get; set; } = dateCréation;
+
+        public List<LigneFeuillePrésence> LignesFeuillePrésence { get; set; } = [];
     }
 }
