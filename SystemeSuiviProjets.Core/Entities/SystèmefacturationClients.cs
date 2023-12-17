@@ -2,9 +2,20 @@
 
 namespace SystemeSuiviProjets.Core
 {
-    public class SystèmeFacturationClients(Client client) : BaseEntity
+    public class SystèmeFacturationClients : BaseEntity
     {
-        public int ClientId { get; set; } = client.Id;
-        public Client Client { get; private set; } = client;
+        public int ClientId { get; set; }
+        public Client Client { get; private set; }
+
+        public SystèmeFacturationClients()
+        {
+            // EF Core needs this one to materialize collections from DB Set
+        }
+
+        public SystèmeFacturationClients(Client client)
+        {
+            ClientId = client.Id;
+            Client = client;
+        }
     }
 }
