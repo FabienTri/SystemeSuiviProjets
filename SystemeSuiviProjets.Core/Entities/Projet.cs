@@ -4,17 +4,17 @@ using SystemeSuiviProjets.SharedKernel;
 
 namespace SystemeSuiviProjets.Core
 {
-    public class Projet(Client client, DateOnly dateDébut, long budgetTotal) : BaseEntity
+    public class Projet : BaseEntity
     {
-        public int ClientId { get; set; } = client.Id;
-        public Client Client { get; private set; } = client;
+        public int ClientId { get; set; }
+        public Client Client { get; private set; }
 
-        public DateOnly DateDébut { get; private set; } = dateDébut;
+        public DateOnly DateDébut { get; private set; }
         public DateOnly DateFin { get; set; }
 
-        public long BudgetTotal { get; set; } = budgetTotal;
+        public long BudgetTotal { get; set; }
 
-        public List<EstAssigné> Professionnels { get; private set; } = [];
+        public List<EstAssigné> Professionnels { get; private set; }
         public void AddEstAssigné(EstAssigné estAssigné)
         {
             Professionnels.Add(estAssigné);
@@ -24,7 +24,7 @@ namespace SystemeSuiviProjets.Core
             Professionnels.Remove(estAssigné);
         }
 
-        public List<LigneFeuillePrésence> LignesFeuillePrésence { get; private set; } = [];
+        public List<LigneFeuillePrésence> LignesFeuillePrésence { get; private set; }
         public void AddLigneFeuillePrésence(LigneFeuillePrésence ligneFeuillePrésence)
         {
             LignesFeuillePrésence.Add(ligneFeuillePrésence);
@@ -32,6 +32,21 @@ namespace SystemeSuiviProjets.Core
         public void RemoveLigneFeuillePrésence(LigneFeuillePrésence ligneFeuillePrésence)
         {
             LignesFeuillePrésence.Remove(ligneFeuillePrésence);
+        }
+
+        public Projet()
+        {
+            // EF Core needs this one to materialize collections from DB Set
+        }
+
+        public Projet(Client client, DateOnly dateDébut, long budgetTotal)
+        {
+            ClientId = client.Id;
+            Client = client;
+            DateDébut = dateDébut;
+            BudgetTotal = budgetTotal;
+            Professionnels = [];
+            LignesFeuillePrésence = [];
         }
     }
 }
