@@ -7,5 +7,7 @@ namespace SystemeSuiviProjets.Core
         : Employé(nom, prénom, adresse, téléphone, dateEmbauche)
     {
         public List<ProfessionnelEstDansCatégorie> Catégories { get; set; } = [];
+
+        public List<EstAssigné> Projets { get; set; } = [];
     }
 }
