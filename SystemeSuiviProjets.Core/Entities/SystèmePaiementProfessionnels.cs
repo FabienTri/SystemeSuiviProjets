@@ -1,4 +1,5 @@
-﻿using SystemeSuiviProjets.SharedKernel;
+﻿using System.Collections.Generic;
+using SystemeSuiviProjets.SharedKernel;
 
 namespace SystemeSuiviProjets.Core
 {
@@ -6,5 +7,7 @@ namespace SystemeSuiviProjets.Core
     {
         public int ProfessionnelId { get; set; } = professionnel.Id;
         public Professionnel Professionnel { get; set; } = professionnel;
+
+        public List<FeuillePrésence> FeuillesPrésence { get; set; } = [];
     }
 }
