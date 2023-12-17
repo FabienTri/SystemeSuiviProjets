@@ -17,6 +17,14 @@ namespace SystemeSuiviProjets.Core
         public long TarifPaiementJour { get; set; } = tarifPaiementJour;
         public long TarifPaiementSemaine { get; set; } = tarifPaiementSemaine;
 
-        public List<ProfessionnelEstDansCatégorie> Professionnels { get; set; } = [];
+        public List<ProfessionnelEstDansCatégorie> Professionnels { get; private set; } = [];
+        public void AddProfessionnelEstDansCatégorie(ProfessionnelEstDansCatégorie professionnelEstDansCatégorie)
+        {
+            Professionnels.Add(professionnelEstDansCatégorie);
+        }
+        public void RemoveProfessionnelEstDansCatégorie(ProfessionnelEstDansCatégorie professionnelEstDansCatégorie)
+        {
+            Professionnels.Remove(professionnelEstDansCatégorie);
+        }
     }
 }
