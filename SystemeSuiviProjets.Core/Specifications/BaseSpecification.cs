@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using SystèmeGestionStationService.SharedKernel.Interfaces;
+using SystemeSuiviProjets.SharedKernel.Interfaces;
 
 namespace SystèmeGestionStationService.Core.Specifications
 {
