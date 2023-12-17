@@ -7,11 +7,11 @@ namespace SystemeSuiviProjets.Core
         : BaseEntity
     {
         public int ProfessionnelId { get; set; } = professionnel.Id;
-        public Professionnel Professionnel { get; set; } = professionnel;
+        public Professionnel Professionnel { get; private set; } = professionnel;
 
         public int CatégorieId { get; set; } = catégorie.Id;
-        public Catégorie Catégorie { get; set; } = catégorie;
+        public Catégorie Catégorie { get; private set; } = catégorie;
 
-        public DateOnly DateAffectation { get; set; } = dateAffectation;
+        public DateOnly DateAffectation { get; private set; } = dateAffectation;
     }
 }
