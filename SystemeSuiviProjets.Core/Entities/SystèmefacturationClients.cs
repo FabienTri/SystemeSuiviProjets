@@ -1,21 +1,19 @@
-﻿using SystemeSuiviProjets.SharedKernel;
+﻿using System.Collections.Generic;
+using System.Text.Json;
+using SystemeSuiviProjets.SharedKernel;
 
 namespace SystemeSuiviProjets.Core
 {
     public class SystèmeFacturationClients : BaseEntity
     {
-        public int ClientId { get; set; }
-        public Client Client { get; private set; }
-
-        public SystèmeFacturationClients()
+        public List<JsonDocument> Documents { get; private set; } = [];
+        public void AddDocument(JsonDocument document)
         {
-            // EF Core needs this one to materialize collections from DB Set
+            Documents.Add(document);
         }
-
-        public SystèmeFacturationClients(Client client)
+        public void RemoveDocument(JsonDocument document)
         {
-            ClientId = client.Id;
-            Client = client;
+            Documents.Remove(document);
         }
     }
 }
