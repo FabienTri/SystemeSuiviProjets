@@ -19,8 +19,6 @@ namespace SystemeSuiviProjets.Core
             Projets.Remove(projet);
         }
 
-        public SystèmeFacturationClients SystèmeFacturationClients { get; private set; }
-
         public Client(string nomConnexion, string motDePasse, string nomCompagnie, string adresse, string téléphone)
             : base(nomConnexion, motDePasse)
         {
@@ -28,7 +26,6 @@ namespace SystemeSuiviProjets.Core
             Adresse = adresse;
             Téléphone = téléphone;
             Projets = [];
-            SystèmeFacturationClients = new SystèmeFacturationClients(this);
         }
     }
 }
