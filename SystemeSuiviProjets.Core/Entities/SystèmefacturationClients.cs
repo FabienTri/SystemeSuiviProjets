@@ -7,12 +7,12 @@ namespace SystemeSuiviProjets.Core
 {
     public class SystèmeFacturationClients : BaseEntity, IAggregateRoot
     {
-        public List<JsonDocument> Documents { get; private set; } = [];
-        public void AddDocument(JsonDocument document)
+        public List<string> Documents { get; private set; } = [];
+        public void AddDocument(string document)
         {
             Documents.Add(document);
         }
-        public void RemoveDocument(JsonDocument document)
+        public void RemoveDocument(string document)
         {
             Documents.Remove(document);
         }
