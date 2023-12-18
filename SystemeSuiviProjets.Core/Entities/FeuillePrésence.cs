@@ -6,8 +6,8 @@ namespace SystemeSuiviProjets.Core
 {
     public class FeuillePrésence : BaseEntity
     {
-        public int SystèmePaiementProfessionnelsId { get; set; }
-        public SystèmePaiementProfessionnels SystèmePaiementProfessionnels { get; private set; }
+        public int ProfessionnelId { get; set; }
+        public Professionnel Professionnel { get; private set; }
 
         public DateTime DateDébutPériode { get; private set; }
         public DateTime DateFinPériode { get; private set; }
@@ -29,11 +29,11 @@ namespace SystemeSuiviProjets.Core
             // EF Core needs this one to materialize collections from DB Set
         }
 
-        public FeuillePrésence(SystèmePaiementProfessionnels systèmePaiementProfessionnels,
+        public FeuillePrésence(Professionnel professionnel,
             DateTime dateDébutPériode, DateTime dateFinPériode, DateTime dateCréation)
         {
-            SystèmePaiementProfessionnelsId = systèmePaiementProfessionnels.Id;
-            SystèmePaiementProfessionnels = systèmePaiementProfessionnels;
+            ProfessionnelId = professionnel.Id;
+            Professionnel = professionnel;
             DateDébutPériode = dateDébutPériode;
             DateFinPériode = dateFinPériode;
             DateCréation = dateCréation;
