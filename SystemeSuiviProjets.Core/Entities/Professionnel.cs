@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace SystemeSuiviProjets.Core
 {
-    public class Professionnel : Employé
+    public class Professionnel(string nomConnexion, string motDePasse, string nom, string prénom,
+                   string adresse, string téléphone, DateOnly dateEmbauche) : Employé(nomConnexion, motDePasse, nom, prénom, adresse, téléphone, dateEmbauche)
     {
-        public List<ProfessionnelEstDansCatégorie> Catégories { get; private set; }
+        public List<ProfessionnelEstDansCatégorie> Catégories { get; private set; } = [];
         public void AddProfessionnelEstDansCatégorie(ProfessionnelEstDansCatégorie professionnelEstDansCatégorie)
         {
             Catégories.Add(professionnelEstDansCatégorie);
@@ -15,7 +16,7 @@ namespace SystemeSuiviProjets.Core
             Catégories.Remove(professionnelEstDansCatégorie);
         }
 
-        public List<EstAssigné> Projets { get; private set; }
+        public List<EstAssigné> Projets { get; private set; } = [];
         public void AddEstAssigné(EstAssigné estAssigné)
         {
             Projets.Add(estAssigné);
@@ -23,17 +24,6 @@ namespace SystemeSuiviProjets.Core
         public void RemoveEstAssigné(EstAssigné estAssigné)
         {
             Projets.Remove(estAssigné);
-        }
-
-        public SystèmePaiementProfessionnels SystèmePaiementProfessionnels { get; private set; }
-
-        public Professionnel(string nomConnexion, string motDePasse, string nom, string prénom,
-                       string adresse, string téléphone, DateOnly dateEmbauche)
-            : base(nomConnexion, motDePasse, nom, prénom, adresse, téléphone, dateEmbauche)
-        {
-            Catégories = [];
-            Projets = [];
-            SystèmePaiementProfessionnels = new SystèmePaiementProfessionnels(this);
         }
     }
 }
