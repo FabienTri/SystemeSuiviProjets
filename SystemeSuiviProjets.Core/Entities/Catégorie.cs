@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using SystemeSuiviProjets.SharedKernel;
+using SystemeSuiviProjets.SharedKernel.Interfaces;
 
 namespace SystemeSuiviProjets.Core
 {
     public class Catégorie(string description, long tarifFacturationHeure, long tarifFacturationJour,
         long tarifFacturationSemaine, long tarifPaiementHeure, long tarifPaiementJour, long tarifPaiementSemaine)
-        : BaseEntity
+        : BaseEntity, IAggregateRoot
     {
         public string Description { get; set; } = description;
 

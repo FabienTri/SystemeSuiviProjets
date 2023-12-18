@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using SystemeSuiviProjets.SharedKernel.Interfaces;
 
 namespace SystemeSuiviProjets.Core
 {
     public class Professionnel(string nomConnexion, string motDePasse, string nom, string prénom,
-                   string adresse, string téléphone, DateOnly dateEmbauche) : Employé(nomConnexion, motDePasse, nom, prénom, adresse, téléphone, dateEmbauche)
+        string adresse, string téléphone, DateOnly dateEmbauche)
+        : Employé(nomConnexion, motDePasse, nom, prénom, adresse, téléphone, dateEmbauche), IAggregateRoot
     {
         public List<ProfessionnelEstDansCatégorie> Catégories { get; private set; } = [];
         public void AddProfessionnelEstDansCatégorie(ProfessionnelEstDansCatégorie professionnelEstDansCatégorie)

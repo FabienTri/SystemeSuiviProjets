@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using SystemeSuiviProjets.SharedKernel.Interfaces;
 
 namespace SystemeSuiviProjets.Core
 {
-    public class Client : Utilisateur
+    public class Client : Utilisateur, IAggregateRoot
     {
         public string NomCompagnie { get; set; }
         public string Adresse { get; set; }

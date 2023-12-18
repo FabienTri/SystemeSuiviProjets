@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using SystemeSuiviProjets.SharedKernel;
+using SystemeSuiviProjets.SharedKernel.Interfaces;
 
 namespace SystemeSuiviProjets.Core
 {
-    public class FeuillePrésence : BaseEntity
+    public class FeuillePrésence : BaseEntity, IAggregateRoot
     {
         public int ProfessionnelId { get; set; }
         public Professionnel Professionnel { get; private set; }

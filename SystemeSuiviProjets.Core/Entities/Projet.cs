@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using SystemeSuiviProjets.SharedKernel;
+using SystemeSuiviProjets.SharedKernel.Interfaces;
 
 namespace SystemeSuiviProjets.Core
 {
-    public class Projet : BaseEntity
+    public class Projet : BaseEntity, IAggregateRoot
     {
         public int ClientId { get; set; }
         public Client Client { get; private set; }
