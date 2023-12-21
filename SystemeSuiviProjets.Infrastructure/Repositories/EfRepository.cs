@@ -10,14 +10,10 @@ using SystemeSuiviProjets.SharedKernel.Interfaces;
 
 namespace SystemeSuiviProjets.Infrastructure.Repositories 
 {
-    public class EfRepository<T> : IAsyncRepository<T>, IRepository<T> where T : BaseEntity, IAggregateRoot
+    public class EfRepository<T>(SystèmeSuiviProjetsContext systemeSuiviProjetsContext)
+        : IAsyncRepository<T>, IRepository<T> where T : BaseEntity, IAggregateRoot
     {
-        protected readonly SystèmeSuiviProjetsContext _SystemeSuiviProjetsContext;
-
-        public EfRepository(SystèmeSuiviProjetsContext systemeSuiviProjetsContext)
-        {
-            _SystemeSuiviProjetsContext = systemeSuiviProjetsContext;
-        }
+        protected readonly SystèmeSuiviProjetsContext _SystemeSuiviProjetsContext = systemeSuiviProjetsContext;
 
         public T Add(T entity)
         {
@@ -73,12 +69,17 @@ namespace SystemeSuiviProjets.Infrastructure.Repositories
 
         public IReadOnlyList<T> List(ISpecification<T> spec)
         {
-            throw new NotImplementedException();
+            return ApplySpecification(spec).ToList();
+        }
+
+        public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).ToListAsync();
         }
 
         public IReadOnlyList<T> ListAll()
         {
-            throw new NotImplementedException();
+            return _SystemeSuiviProjetsContext.Set<T>().ToList();
         }
 
         public async Task<IReadOnlyList<T>> ListAllAsync()
@@ -89,7 +90,8 @@ namespace SystemeSuiviProjets.Infrastructure.Repositories
 
         public int Update(T entity)
         {
-            throw new NotImplementedException();
+            _SystemeSuiviProjetsContext.Entry(entity).State = EntityState.Modified;
+            return _SystemeSuiviProjetsContext.SaveChanges();
         }
 
         public async Task UpdateAsync(T entity)
@@ -108,11 +110,6 @@ namespace SystemeSuiviProjets.Infrastructure.Repositories
             return
             SpecificationEvaluator<T>.GetQuery(
             _SystemeSuiviProjetsContext.Set<T>().AsQueryable(), spec);
-        }
-
-        public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
-        {
-            return await ApplySpecification(spec).ToListAsync();
         }
     }
 
