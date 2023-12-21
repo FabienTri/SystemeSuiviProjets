@@ -12,7 +12,7 @@ using SystemeSuiviProjets.Infrastructure;
 namespace SystemeSuiviProjets.Infrastructure.Migrations
 {
     [DbContext(typeof(SystèmeSuiviProjetsContext))]
-    [Migration("20231218224505_CreateSystèmeSuiviProjetsDB")]
+    [Migration("20231221090257_CreateSystèmeSuiviProjetsDB")]
     partial class CreateSystèmeSuiviProjetsDB
     {
         /// <inheritdoc />
@@ -70,7 +70,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                     b.Property<DateOnly>("DateAssignation")
                         .HasColumnType("date");
 
-                    b.Property<int>("ProfessionnelId")
+                    b.Property<int?>("ProfessionnelId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProjetId")
@@ -140,7 +140,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                     b.Property<int>("NombreUnités")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProjetId")
+                    b.Property<int?>("ProjetId")
                         .HasColumnType("int");
 
                     b.Property<int>("TypeTarification")
@@ -354,9 +354,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 {
                     b.HasOne("SystemeSuiviProjets.Core.Professionnel", "Professionnel")
                         .WithMany("Projets")
-                        .HasForeignKey("ProfessionnelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProfessionnelId");
 
                     b.HasOne("SystemeSuiviProjets.Core.Projet", "Projet")
                         .WithMany("Professionnels")
@@ -394,9 +392,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
 
                     b.HasOne("SystemeSuiviProjets.Core.Projet", "Projet")
                         .WithMany("LignesFeuillePrésence")
-                        .HasForeignKey("ProjetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProjetId");
 
                     b.Navigation("FeuillePrésence");
 

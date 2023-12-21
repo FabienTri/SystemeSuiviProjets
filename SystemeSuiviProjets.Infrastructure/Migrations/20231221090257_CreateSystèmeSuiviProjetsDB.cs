@@ -183,7 +183,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProfessionnelId = table.Column<int>(type: "int", nullable: false),
+                    ProfessionnelId = table.Column<int>(type: "int", nullable: true),
                     ProjetId = table.Column<int>(type: "int", nullable: false),
                     DateAssignation = table.Column<DateOnly>(type: "date", nullable: false)
                 },
@@ -200,8 +200,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                         name: "FK_EstAssigné_Utilisateur_ProfessionnelId",
                         column: x => x.ProfessionnelId,
                         principalTable: "Utilisateur",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -211,7 +210,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FeuillePrésenceId = table.Column<int>(type: "int", nullable: false),
-                    ProjetId = table.Column<int>(type: "int", nullable: false),
+                    ProjetId = table.Column<int>(type: "int", nullable: true),
                     TypeTarification = table.Column<int>(type: "int", nullable: false),
                     NombreUnités = table.Column<int>(type: "int", nullable: false),
                     FraisDéplacement = table.Column<double>(type: "float", nullable: false),
@@ -230,8 +229,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                         name: "FK_LigneFeuillePrésence_Projet_ProjetId",
                         column: x => x.ProjetId,
                         principalTable: "Projet",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
