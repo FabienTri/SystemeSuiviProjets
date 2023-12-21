@@ -38,20 +38,31 @@ namespace SystemeSuiviProjets.Core.Services
             return _projetRepository.ListAllAsync();
         }
 
-        public Task<string> GetTypeSession(string username)
+        public string GetTypeSession(string username)
         {
             //retieve the type of session with the username from the database
             //return the type of session
             throw new NotImplementedException();
         }
 
-        public Task<bool> ValiderInfoConnexion(string username, string password)
+        public bool ValiderInfoConnexion(string username, string password)
         {
-            //retrieve the password from the database with the username
-            //compare the password with the password from the database
-            //return true if the password is correct
-            //return false if the password is incorrect
-            throw new NotImplementedException();    
+            Debug.WriteLine("ValiderInfoConnexion : username=" + username + ", password=" + password);
+            try {            
+                Utilisateur utilisateur = _utilisateurRepository.GetByNomConnexionWithSessions(username);
+
+                if (utilisateur != null)
+                {
+                    if (utilisateur.MotDePasse == password)
+                    {
+                        return true;
+                    }
+                }
+            } catch(Exception e)
+            {
+                Debug.WriteLine("Exception : " + e.Message);
+            }
+            return false;
         }
     }
 }
