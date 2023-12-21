@@ -42,7 +42,6 @@ namespace SystemeSuiviProjets.Core
 
         public Projet(Client client, DateOnly dateDébut, long budgetTotal)
         {
-            ClientId = client.Id;
             Client = client;
             DateDébut = dateDébut;
             BudgetTotal = budgetTotal;

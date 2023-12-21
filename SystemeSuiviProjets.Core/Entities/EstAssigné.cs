@@ -20,9 +20,7 @@ namespace SystemeSuiviProjets.Core
 
         public EstAssigné(Professionnel professionnel, Projet projet, DateOnly dateAssignation)
         {
-            ProfessionnelId = professionnel.Id;
             Professionnel = professionnel;
-            ProjetId = projet.Id;
             Projet = projet;
             DateAssignation = dateAssignation;
         }

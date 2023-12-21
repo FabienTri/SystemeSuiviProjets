@@ -21,9 +21,7 @@ namespace SystemeSuiviProjets.Core
 
         public ProfessionnelEstDansCatégorie(Professionnel professionnel, Catégorie catégorie, DateOnly dateAffectation)
         {
-            ProfessionnelId = professionnel.Id;
             Professionnel = professionnel;
-            CatégorieId = catégorie.Id;
             Catégorie = catégorie;
             DateAffectation = dateAffectation;
         }

@@ -3,13 +3,14 @@ using SystemeSuiviProjets.SharedKernel.Interfaces;
 
 namespace SystemeSuiviProjets.Core
 {
-    public class Client : Utilisateur, IAggregateRoot
+    public class Client(string nomConnexion, string motDePasse, string nomCompagnie, string adresse, string téléphone)
+        : Utilisateur(nomConnexion, motDePasse), IAggregateRoot
     {
-        public string NomCompagnie { get; set; }
-        public string Adresse { get; set; }
-        public string Téléphone { get; set; }
+        public string NomCompagnie { get; set; } = nomCompagnie;
+        public string Adresse { get; set; } = adresse;
+        public string Téléphone { get; set; } = téléphone;
 
-        public List<Projet> Projets { get; private set; }
+        public List<Projet> Projets { get; private set; } = [];
         public void AddProjet(Projet projet)
         {
             Projets.Add(projet);
@@ -17,15 +18,6 @@ namespace SystemeSuiviProjets.Core
         public void RemoveProjet(Projet projet)
         {
             Projets.Remove(projet);
-        }
-
-        public Client(string nomConnexion, string motDePasse, string nomCompagnie, string adresse, string téléphone)
-            : base(nomConnexion, motDePasse)
-        {
-            NomCompagnie = nomCompagnie;
-            Adresse = adresse;
-            Téléphone = téléphone;
-            Projets = [];
         }
     }
 }

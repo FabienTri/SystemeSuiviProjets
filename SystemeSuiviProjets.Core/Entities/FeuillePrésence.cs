@@ -33,7 +33,6 @@ namespace SystemeSuiviProjets.Core
         public FeuillePrésence(Professionnel professionnel,
             DateTime dateDébutPériode, DateTime dateFinPériode, DateTime dateCréation)
         {
-            ProfessionnelId = professionnel.Id;
             Professionnel = professionnel;
             DateDébutPériode = dateDébutPériode;
             DateFinPériode = dateFinPériode;

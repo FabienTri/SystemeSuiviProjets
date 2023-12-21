@@ -23,9 +23,7 @@ namespace SystemeSuiviProjets.Core
         public LigneFeuillePrésence(FeuillePrésence feuillePrésence, Projet projet, TypeTarification typeTarification,
             int nbUnités, double fraisDéplacement = 0, double fraisSéjour = 0)
         {
-            FeuillePrésenceId = feuillePrésence.Id;
             FeuillePrésence = feuillePrésence;
-            ProjetId = projet.Id;
             Projet = projet;
             TypeTarification = typeTarification;
             NombreUnités = nbUnités;

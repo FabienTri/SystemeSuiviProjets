@@ -18,7 +18,6 @@ namespace SystemeSuiviProjets.Core
 
         public Session(Utilisateur utilisateur, DateTime dateConnexion)
         {
-            UtilisateurId = utilisateur.Id;
             Utilisateur = utilisateur;
             DateConnexion = dateConnexion;
         }
