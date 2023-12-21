@@ -51,10 +51,25 @@ namespace SystemeSuiviProjets
                     string prénom = "admin";
                     DateOnly dateEmbauche = DateOnly.FromDateTime(DateTime.Now);
 
-                    var professionnel = new Professionnel(nomConnexon, motDePasse, nom, prénom, adresse, téléphone, dateEmbauche);
+                    string cliNomConnexion = "client";
+                    string cliMotDePasse = "client";
+                    string cliNomCompagnie = "EDF";
+                    string cliAdresse = "123 rue de la rue";
+                    string cliTéléphone = "123456789";
 
+                    DateOnly dateProj = DateOnly.FromDateTime(DateTime.Now);
+                    long budget = 1000;
+
+
+                    var professionnel = new Professionnel(nomConnexon, motDePasse, nom, prénom, adresse, téléphone, dateEmbauche);
+                    var client = new Client(cliNomConnexion, cliMotDePasse, cliNomCompagnie, cliAdresse, cliTéléphone);
+                    var projet = new Projet(client, dateProj, budget);
+                    
                     SystèmeSuiviProjetsContext systèmeSuiviProjetsContext = new SystèmeSuiviProjetsContext();
                     systèmeSuiviProjetsContext.Professionnels.Add(professionnel);
+                    systèmeSuiviProjetsContext.Clients.Add(client);
+                    systèmeSuiviProjetsContext.Projets.Add(projet);
+
                     systèmeSuiviProjetsContext.SaveChanges();
 
 
