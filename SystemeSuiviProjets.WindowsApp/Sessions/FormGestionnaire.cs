@@ -7,41 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SystemeSuiviProjets.Core;
+using SystemeSuiviProjets.Setters;
 
 namespace SystemeSuiviProjets
 {
     public partial class FormGestionnaire : Form
     {
-        public FormGestionnaire()
+        public FormGestionnaire(List<Projet> projets, List<Employé> employes, List<Client> clients)
         {
             InitializeComponent();
+            this.projets = projets;
+            this.employes = employes;
+            this.clients = clients;
         }
 
+        private List<Projet> projets;
+        private List<Employé> employes;
+        private List<Client> clients;
+
         Boolean buttonPressed = false;
-        List<Projet> listeProjets = new List<Projet>
-        {
-            new Projet ("Projet 1",  DateTime.Now,  DateTime.Now.AddDays(30), 10000),
-            new Projet ("Projet 2",  DateTime.Now,  DateTime.Now.AddDays(45), 20000),
-        };
 
-        List<Employe> listeEmploye = new List<Employe>
-        {
-            new Employe (  "1",  "Doe",  "John",  DateTime.Now, "123 rue de la rue", "1234567890" ),
-            new Employe (  "2",  "Doe",  "Jane",  DateTime.Now, "123 rue de la rue", "1234567890" ),
-            new Employe (  "3",  "Doe",  "John",  DateTime.Now, "123 rue de la rue", "1234567890" ),
-            new Employe (  "4",  "Doe",  "Jane",  DateTime.Now, "123 rue de la rue", "1234567890" ),
-            new Employe (  "5",  "Doe",  "John",  DateTime.Now, "123 rue de la rue", "1234567890" ),
-            new Employe (  "6",  "Doe",  "Jane",  DateTime.Now, "123 rue de la rue", "1234567890" ),
-            new Employe (  "7",  "Doe",  "John",  DateTime.Now, "123 rue de la rue", "1234567890" ),
-            new Employe (  "8",  "Doe",  "Jane",  DateTime.Now, "123 rue de la rue", "1234567890" ),
-        };
 
-        List<Client> listeClient = new List<Client>
-        {
-            new Client (  "1",  "Doe",  "123 rue de la rue", "1234567890"),
-            new Client (  "2",  "Doe",  "123 rue de la rue", "1234567890"),
-            new Client (  "3",  "Doe",  "123 rue de la rue", "1234567890")
-        };
 
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -56,9 +43,9 @@ namespace SystemeSuiviProjets
 
         private void FormGestionnaire_Load(object sender, EventArgs e)
         {
-            dataGridViewProjet.DataSource = listeProjets.ToArray();
-            dataGridViewEmploye.DataSource = listeEmploye.ToArray();
-            dataGridView1.DataSource = listeClient.ToArray();
+            dataGridViewProjet.DataSource = projets.ToArray();
+            dataGridViewEmploye.DataSource = employes.ToArray();
+            dataGridView1.DataSource = clients.ToArray();
         }
 
         private void buttonSetEmploye_Click(object sender, EventArgs e)
@@ -68,7 +55,10 @@ namespace SystemeSuiviProjets
 
         private void buttonGetEmploye_Click(object sender, EventArgs e)
         {
-            new FormSetEmploye(new Employe("1", "Doe", "John", DateTime.Now, "123 rue de la rue", "1234567890")).ShowDialog();
+            new FormSetEmploye(
+                //get selected employe
+                employe: (Employé)dataGridViewEmploye.SelectedRows[0].DataBoundItem
+                ).ShowDialog();
 
         }
 
@@ -79,7 +69,10 @@ namespace SystemeSuiviProjets
 
         private void buttonGetProject_Click(object sender, EventArgs e)
         {
-            FormGetProject form11 = new FormGetProject();
+            FormGetProject form11 = new FormGetProject(
+                //get projects of selected employe
+                employes: (List<Employé>)dataGridViewEmploye.SelectedRows[0].DataBoundItem
+                );
             form11.Show();
         }
 
@@ -91,7 +84,7 @@ namespace SystemeSuiviProjets
 
         private void buttonGetClient_Click(object sender, EventArgs e)
         {
-            FormSetClient formSetClient = new FormSetClient(new Client("1", "Doe", "123 rue de la rue", "1234567890"));
+            FormSetClient formSetClient = new FormSetClient();
             formSetClient.ShowDialog();
         }
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SystemeSuiviProjets.Core;
 
 namespace SystemeSuiviProjets.Setters
 {
@@ -31,10 +32,9 @@ namespace SystemeSuiviProjets.Setters
             switch (Text)
             {
                 case "Modifier un client":
-                    textBoxNumero.Text = client.Numero;
-                    textBoxNom.Text = client.Nom;
+                    textBoxNom.Text = client.NomCompagnie;
                     textBoxAdresse.Text = client.Adresse;
-                    textBoxTelephone.Text = client.Telephone;
+                    textBoxTelephone.Text = client.Téléphone;
                     break;
                 case "Ajouter un client":
                     break;
@@ -46,13 +46,11 @@ namespace SystemeSuiviProjets.Setters
             switch (Text)
             {
                 case "Modifier un client":
-                    client.Numero = textBoxNumero.Text;
-                    client.Nom = textBoxNom.Text;
+                    client.NomCompagnie = textBoxNom.Text;
                     client.Adresse = textBoxAdresse.Text;
-                    client.Telephone = textBoxTelephone.Text;
+                    client.Téléphone = textBoxTelephone.Text;
                     break;
                 case "Ajouter un client":
-                    client = new Client(textBoxNumero.Text, textBoxNom.Text, textBoxAdresse.Text, textBoxTelephone.Text);
                     break;
             }
         }

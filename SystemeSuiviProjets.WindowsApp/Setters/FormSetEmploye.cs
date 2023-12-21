@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SystemeSuiviProjets.Core;
 
 namespace SystemeSuiviProjets
 {
@@ -21,9 +22,9 @@ namespace SystemeSuiviProjets
             Text = "Ajouter un employé";
         }
 
-        private Employe employeToChange;
+        private Employé employeToChange;
 
-        public FormSetEmploye(Employe employe)
+        public FormSetEmploye(Employé employe)
         {
             InitializeComponent();
             Text = "Modifier un employé";
@@ -35,12 +36,11 @@ namespace SystemeSuiviProjets
             switch (Text)
             {
                 case "Modifier un employé":
-                    textBoxMatricule.Text = employeToChange.Matricule;
                     textBoxNom.Text = employeToChange.Nom;
-                    textBoxPrenom.Text = employeToChange.Prenom;
+                    textBoxPrenom.Text = employeToChange.Prénom;
                     textBoxAdresse.Text = employeToChange.Adresse;
-                    textBoxTelephone.Text = employeToChange.Telephone;
-                    dateTimePicker1.Value = employeToChange.DateEmbauche;
+                    textBoxTelephone.Text = employeToChange.Téléphone;
+                    dateTimePicker1.Value = employeToChange.DateEmbauche.ToDateTime(new TimeOnly(0, 0, 0));
                     break;
                 case "Ajouter un employé":
                     break;

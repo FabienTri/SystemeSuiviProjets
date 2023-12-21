@@ -1,5 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Windows.Forms;
+using SystemeSuiviProjets.Core.Interfaces;
+using SystemeSuiviProjets.Infrastructure;
+using SystemeSuiviProjets.Infrastructure.Repositories;
 
 namespace SystemeSuiviProjets
 {
@@ -11,10 +17,34 @@ namespace SystemeSuiviProjets
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new FormConnexion());
+            var builder = new HostBuilder()
+             .ConfigureServices((hostContext, services) =>
+             {
+                 services.AddDbContext < SystèmeSuiviProjetsContext > (options => options.UseSqlServer(@"Server=.;Database=SystèmeSuiviProjetsDB;Trusted_Connection=True;"));
+                 services.AddScoped<IClientRepository, ClientRepository>();
+                 services.AddSingleton<FormConnexion>();
+                 services.AddSingleton<FormGestionnaire>();
+                 services.AddSingleton<FormEmploye>();
+                 services.AddSingleton<FormClient>();
+
+
+
+             });
+
+            var host = builder.Build();
+            using (var serviceScope = host.Services.CreateScope())
+            {
+                var services = serviceScope.ServiceProvider;
+                try
+                {
+                    var forms = services.GetRequiredService<FormConnexion>();
+                    Application.Run(forms);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error");
+                }
+            }
         }
     }
 }

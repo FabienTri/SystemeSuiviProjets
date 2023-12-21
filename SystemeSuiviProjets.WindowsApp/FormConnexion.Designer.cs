@@ -31,23 +31,23 @@ namespace SystemeSuiviProjets
         /// </summary>
         private void InitializeComponent()
         {
-            textBox2 = new TextBox();
+            textBoxPassword = new TextBox();
             button1 = new Button();
-            textBox3 = new TextBox();
+            textBoxUsername = new TextBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            textBox2.Anchor = AnchorStyles.Top;
-            textBox2.Location = new Point(80, 67);
-            textBox2.Margin = new Padding(5);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Mot de passe";
-            textBox2.Size = new Size(313, 39);
-            textBox2.TabIndex = 1;
-            textBox2.UseSystemPasswordChar = true;
+            textBoxPassword.Anchor = AnchorStyles.Top;
+            textBoxPassword.Location = new Point(80, 67);
+            textBoxPassword.Margin = new Padding(5);
+            textBoxPassword.Name = "textBoxPassword";
+            textBoxPassword.PlaceholderText = "Mot de passe";
+            textBoxPassword.Size = new Size(313, 39);
+            textBoxPassword.TabIndex = 1;
+            textBoxPassword.UseSystemPasswordChar = true;
             // 
             // button1
             // 
@@ -60,23 +60,23 @@ namespace SystemeSuiviProjets
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // textBox3
+            // textBoxUsername
             // 
-            textBox3.Anchor = AnchorStyles.Bottom;
-            textBox3.Location = new Point(80, 18);
-            textBox3.Margin = new Padding(5);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Nom d'utilisateur";
-            textBox3.Size = new Size(313, 39);
-            textBox3.TabIndex = 3;
+            textBoxUsername.Anchor = AnchorStyles.Bottom;
+            textBoxUsername.Location = new Point(80, 18);
+            textBoxUsername.Margin = new Padding(5);
+            textBoxUsername.Name = "textBoxUsername";
+            textBoxUsername.PlaceholderText = "Nom d'utilisateur";
+            textBoxUsername.Size = new Size(313, 39);
+            textBoxUsername.TabIndex = 3;
             // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(textBox3, 0, 0);
+            tableLayoutPanel1.Controls.Add(textBoxUsername, 0, 0);
             tableLayoutPanel1.Controls.Add(button1, 0, 2);
-            tableLayoutPanel1.Controls.Add(textBox2, 0, 1);
+            tableLayoutPanel1.Controls.Add(textBoxPassword, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -106,9 +106,9 @@ namespace SystemeSuiviProjets
         }
 
         #endregion
-        private TextBox textBox2;
+        private TextBox textBoxPassword;
         private Button button1;
-        private TextBox textBox3;
+        private TextBox textBoxUsername;
         private TableLayoutPanel tableLayoutPanel1;
     }
 }

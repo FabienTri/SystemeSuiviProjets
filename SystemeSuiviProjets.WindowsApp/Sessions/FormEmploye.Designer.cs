@@ -31,9 +31,6 @@ namespace SystemeSuiviProjets
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -50,7 +47,6 @@ namespace SystemeSuiviProjets
             label4 = new Label();
             label5 = new Label();
             saveButton = new Button();
-            chartPresence = new System.Windows.Forms.DataVisualization.Charting.Chart();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             tableLayoutPanel4 = new TableLayoutPanel();
             button1 = new Button();
@@ -65,7 +61,6 @@ namespace SystemeSuiviProjets
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)chartPresence).BeginInit();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
@@ -79,7 +74,6 @@ namespace SystemeSuiviProjets
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 590F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 0, 0);
-            tableLayoutPanel1.Controls.Add(chartPresence, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(10, 10);
             tableLayoutPanel1.Margin = new Padding(10);
@@ -269,23 +263,6 @@ namespace SystemeSuiviProjets
             saveButton.UseVisualStyleBackColor = true;
             saveButton.Click += saveButton_Click;
             // 
-            // chartPresence
-            // 
-            chartArea2.Name = "ChartArea1";
-            chartPresence.ChartAreas.Add(chartArea2);
-            chartPresence.Dock = DockStyle.Fill;
-            legend2.Name = "Legend1";
-            chartPresence.Legends.Add(legend2);
-            chartPresence.Location = new Point(593, 3);
-            chartPresence.Name = "chartPresence";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chartPresence.Series.Add(series2);
-            chartPresence.Size = new Size(558, 324);
-            chartPresence.TabIndex = 1;
-            chartPresence.Text = "chart1";
-            // 
             // tableLayoutPanel4
             // 
             tableLayoutPanel4.ColumnCount = 2;
@@ -353,7 +330,7 @@ namespace SystemeSuiviProjets
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold);
             label9.Location = new Point(3, 0);
             label9.Name = "label9";
             label9.Size = new Size(225, 50);
@@ -373,7 +350,6 @@ namespace SystemeSuiviProjets
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.RowTemplate.Height = 41;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1156, 273);
             dataGridView1.TabIndex = 1;
@@ -428,7 +404,6 @@ namespace SystemeSuiviProjets
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)chartPresence).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel7.ResumeLayout(false);

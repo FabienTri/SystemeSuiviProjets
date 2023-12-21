@@ -176,6 +176,7 @@ namespace SystemeSuiviProjets
             buttonConfirm.TabIndex = 0;
             buttonConfirm.Text = "Confirmer";
             buttonConfirm.UseVisualStyleBackColor = true;
+            buttonConfirm.Click += buttonConfirm_Click;
             // 
             // buttonCancel
             // 
@@ -187,6 +188,7 @@ namespace SystemeSuiviProjets
             buttonCancel.TabIndex = 1;
             buttonCancel.Text = "Annuler";
             buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // tableLayoutPanel1
             // 

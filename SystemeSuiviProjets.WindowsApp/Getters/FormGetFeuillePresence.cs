@@ -8,37 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemeSuiviProjets;
+using SystemeSuiviProjets.Core;
 
 namespace SystemeSuiviProjets
 {
     public partial class FormGetFeuillePresence : Form
     {
-        public FormGetFeuillePresence()
+        public FormGetFeuillePresence(List<FeuillePrésence> feuillesPresence)
         {
             InitializeComponent();
+            _ = this.feuillesPresence;
         }
 
-        List<FeuillePresence> feuillePresenceList
-        {
-            get
-            {
-                return new List<FeuillePresence>()
-                {
-                    new FeuillePresence(DateTime.Now, DateTime.Now,new Employe("123", "nom", "prenom", DateTime.Now, "adresse", "telephone"), new Projet("nom", DateTime.Now, DateTime.Now, 100)),
-                    new FeuillePresence(DateTime.Now, DateTime.Now,new Employe("123", "nom", "prenom", DateTime.Now, "adresse", "telephone"), new Projet("nom", DateTime.Now, DateTime.Now, 100)),
-                    new FeuillePresence(DateTime.Now, DateTime.Now,new Employe("123", "nom", "prenom", DateTime.Now, "adresse", "telephone"), new Projet("nom", DateTime.Now, DateTime.Now, 100)),
-                    new FeuillePresence(DateTime.Now, DateTime.Now,new Employe("123", "nom", "prenom", DateTime.Now, "adresse", "telephone"), new Projet("nom", DateTime.Now, DateTime.Now, 100)),
-                    new FeuillePresence(DateTime.Now, DateTime.Now,new Employe("123", "nom", "prenom", DateTime.Now, "adresse", "telephone"), new Projet("nom", DateTime.Now, DateTime.Now, 100)),
-                    new FeuillePresence(DateTime.Now, DateTime.Now,new Employe("123", "nom", "prenom", DateTime.Now, "adresse", "telephone"), new Projet("nom", DateTime.Now, DateTime.Now, 100)),
-                    new FeuillePresence(DateTime.Now, DateTime.Now,new Employe("123", "nom", "prenom", DateTime.Now, "adresse", "telephone"), new Projet("nom", DateTime.Now, DateTime.Now, 100)),
-                };
-            }
-        }
+        private List<FeuillePrésence> feuillesPresence;
 
         private void FormGetFeuillePresence_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = feuillePresenceList.ToArray();
-
+            dataGridView1.DataSource = feuillesPresence.ToArray();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -52,7 +38,7 @@ namespace SystemeSuiviProjets
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormGetLignePresence form10 = new FormGetLignePresence();
+            FormGetLignePresence form10 = new FormGetLignePresence(lignesFeuillePresence: (List<LigneFeuillePrésence>)dataGridView1.SelectedRows[0].DataBoundItem);
             form10.ShowDialog();
         }
 

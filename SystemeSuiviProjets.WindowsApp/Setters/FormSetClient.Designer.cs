@@ -38,8 +38,6 @@ namespace SystemeSuiviProjets.Setters
             tableLayoutPanel3 = new TableLayoutPanel();
             textBoxAdresse = new TextBox();
             textBoxNom = new TextBox();
-            textBoxNumero = new TextBox();
-            labelNumero = new Label();
             labelNom = new Label();
             labelAdresse = new Label();
             textBoxTelephone = new TextBox();
@@ -109,24 +107,20 @@ namespace SystemeSuiviProjets.Setters
             tableLayoutPanel3.ColumnCount = 2;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 246F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Controls.Add(textBoxAdresse, 1, 2);
-            tableLayoutPanel3.Controls.Add(textBoxNom, 1, 1);
-            tableLayoutPanel3.Controls.Add(textBoxNumero, 1, 0);
-            tableLayoutPanel3.Controls.Add(labelNumero, 0, 0);
-            tableLayoutPanel3.Controls.Add(labelNom, 0, 1);
-            tableLayoutPanel3.Controls.Add(labelAdresse, 0, 2);
-            tableLayoutPanel3.Controls.Add(textBoxTelephone, 1, 3);
-            tableLayoutPanel3.Controls.Add(labelTelephone, 0, 3);
+            tableLayoutPanel3.Controls.Add(textBoxAdresse, 1, 1);
+            tableLayoutPanel3.Controls.Add(textBoxNom, 1, 0);
+            tableLayoutPanel3.Controls.Add(labelNom, 0, 0);
+            tableLayoutPanel3.Controls.Add(labelAdresse, 0, 1);
+            tableLayoutPanel3.Controls.Add(textBoxTelephone, 1, 2);
+            tableLayoutPanel3.Controls.Add(labelTelephone, 0, 2);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(25, 25);
             tableLayoutPanel3.Margin = new Padding(25);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 4;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 24.9999962F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 25.0000038F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 25.0000038F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 24.9999962F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.RowCount = 3;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33334F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33333F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel3.Size = new Size(624, 201);
             tableLayoutPanel3.TabIndex = 1;
@@ -134,7 +128,7 @@ namespace SystemeSuiviProjets.Setters
             // textBoxAdresse
             // 
             textBoxAdresse.Anchor = AnchorStyles.Left;
-            textBoxAdresse.Location = new Point(249, 105);
+            textBoxAdresse.Location = new Point(249, 80);
             textBoxAdresse.Name = "textBoxAdresse";
             textBoxAdresse.Size = new Size(372, 39);
             textBoxAdresse.TabIndex = 12;
@@ -142,34 +136,16 @@ namespace SystemeSuiviProjets.Setters
             // textBoxNom
             // 
             textBoxNom.Anchor = AnchorStyles.Left;
-            textBoxNom.Location = new Point(249, 55);
+            textBoxNom.Location = new Point(249, 13);
             textBoxNom.Name = "textBoxNom";
             textBoxNom.Size = new Size(372, 39);
             textBoxNom.TabIndex = 10;
-            // 
-            // textBoxNumero
-            // 
-            textBoxNumero.Anchor = AnchorStyles.Left;
-            textBoxNumero.Location = new Point(249, 5);
-            textBoxNumero.Name = "textBoxNumero";
-            textBoxNumero.Size = new Size(372, 39);
-            textBoxNumero.TabIndex = 9;
-            // 
-            // labelNumero
-            // 
-            labelNumero.Anchor = AnchorStyles.Left;
-            labelNumero.AutoSize = true;
-            labelNumero.Location = new Point(3, 9);
-            labelNumero.Name = "labelNumero";
-            labelNumero.Size = new Size(102, 32);
-            labelNumero.TabIndex = 0;
-            labelNumero.Text = "Numéro";
             // 
             // labelNom
             // 
             labelNom.Anchor = AnchorStyles.Left;
             labelNom.AutoSize = true;
-            labelNom.Location = new Point(3, 59);
+            labelNom.Location = new Point(3, 17);
             labelNom.Name = "labelNom";
             labelNom.Size = new Size(67, 32);
             labelNom.TabIndex = 1;
@@ -179,7 +155,7 @@ namespace SystemeSuiviProjets.Setters
             // 
             labelAdresse.Anchor = AnchorStyles.Left;
             labelAdresse.AutoSize = true;
-            labelAdresse.Location = new Point(3, 109);
+            labelAdresse.Location = new Point(3, 83);
             labelAdresse.Name = "labelAdresse";
             labelAdresse.Size = new Size(97, 32);
             labelAdresse.TabIndex = 3;
@@ -188,7 +164,7 @@ namespace SystemeSuiviProjets.Setters
             // textBoxTelephone
             // 
             textBoxTelephone.Anchor = AnchorStyles.Left;
-            textBoxTelephone.Location = new Point(249, 156);
+            textBoxTelephone.Location = new Point(249, 147);
             textBoxTelephone.Name = "textBoxTelephone";
             textBoxTelephone.Size = new Size(372, 39);
             textBoxTelephone.TabIndex = 13;
@@ -197,7 +173,7 @@ namespace SystemeSuiviProjets.Setters
             // 
             labelTelephone.Anchor = AnchorStyles.Left;
             labelTelephone.AutoSize = true;
-            labelTelephone.Location = new Point(3, 159);
+            labelTelephone.Location = new Point(3, 151);
             labelTelephone.Name = "labelTelephone";
             labelTelephone.Size = new Size(126, 32);
             labelTelephone.TabIndex = 5;
@@ -229,8 +205,6 @@ namespace SystemeSuiviProjets.Setters
         private TableLayoutPanel tableLayoutPanel3;
         private TextBox textBoxAdresse;
         private TextBox textBoxNom;
-        private TextBox textBoxNumero;
-        private Label labelNumero;
         private Label labelNom;
         private Label labelAdresse;
         private TextBox textBoxTelephone;
