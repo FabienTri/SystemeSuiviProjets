@@ -14,5 +14,10 @@ namespace SystemeSuiviProjets.Core
         {
             Sessions.Add(session);
         }
+
+        public bool ValiderInfoConnexion(string nomConnexion, string motDePasse)
+        {
+            return (nomConnexion == NomConnexion && motDePasse == MotDePasse) ? true : false;
+        }
     }
 }
