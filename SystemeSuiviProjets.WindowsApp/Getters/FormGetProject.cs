@@ -13,17 +13,17 @@ namespace SystemeSuiviProjets
 {
     public partial class FormGetProject : Form
     {
-        public FormGetProject(List<Employé> employes)
+        public FormGetProject(List<Professionnel> professionnels)
         {
             InitializeComponent();
-            this.employes = employes;
+            this.professionnels = professionnels;
         }
 
-        private List<Employé> employes;
+        private List<Professionnel> professionnels;
 
         private void FormGetProject_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = employes;
+            dataGridView1.DataSource = professionnels;
             dataGridView1.Columns[3].Visible = false;
             dataGridView1.Columns[4].Visible = false;
             dataGridView1.Columns[5].Visible = false;
@@ -41,9 +41,9 @@ namespace SystemeSuiviProjets
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormGetEmploye form12 = new FormGetEmploye(
+            FormGetProfessionnel form12 = new FormGetProfessionnel(
                 //get employés du projet sélectionné
-                employes: (List<Employé>)dataGridView1.SelectedRows[0].DataBoundItem
+                professionnels: (List<Professionnel>)dataGridView1.SelectedRows[0].DataBoundItem
                 );
             form12.Show();
         }

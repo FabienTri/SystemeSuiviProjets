@@ -14,16 +14,16 @@ namespace SystemeSuiviProjets
 {
     public partial class FormGestionnaire : Form
     {
-        public FormGestionnaire(List<Projet> projets, List<Employé> employes, List<Client> clients)
+        public FormGestionnaire(List<Projet> projets, List<Professionnel> professionnels, List<Client> clients)
         {
             InitializeComponent();
             this.projets = projets;
-            this.employes = employes;
+            this.professionnels = professionnels;
             this.clients = clients;
         }
 
         private List<Projet> projets;
-        private List<Employé> employes;
+        private List<Professionnel> professionnels;
         private List<Client> clients;
 
         Boolean buttonPressed = false;
@@ -44,21 +44,20 @@ namespace SystemeSuiviProjets
         private void FormGestionnaire_Load(object sender, EventArgs e)
         {
             dataGridViewProjet.DataSource = projets.ToArray();
-            dataGridViewEmploye.DataSource = employes.ToArray();
+            dataGridViewProfessionnel.DataSource = professionnels.ToArray();
             dataGridView1.DataSource = clients.ToArray();
         }
 
-        private void buttonSetEmploye_Click(object sender, EventArgs e)
+        private void buttonSetProfessionnel_Click(object sender, EventArgs e)
         {
-            new FormSetEmploye().ShowDialog();
+            new FormSetProfessionnel().ShowDialog();
         }
 
-        private void buttonGetEmploye_Click(object sender, EventArgs e)
+        private void buttonGetProfessionnel_Click(object sender, EventArgs e)
         {
-            new FormSetEmploye(
+            new FormSetProfessionnel(
                 //get selected employe
-                employe: (Employé)dataGridViewEmploye.SelectedRows[0].DataBoundItem
-                ).ShowDialog();
+                professionnel: (Professionnel)dataGridViewProfessionnel.SelectedRows[0].DataBoundItem).ShowDialog();
 
         }
 
@@ -70,8 +69,8 @@ namespace SystemeSuiviProjets
         private void buttonGetProject_Click(object sender, EventArgs e)
         {
             FormGetProject form11 = new FormGetProject(
-                //get projects of selected employe
-                employes: (List<Employé>)dataGridViewEmploye.SelectedRows[0].DataBoundItem
+                //get projects of selected professionnel
+                professionnels: (List<Professionnel>)dataGridViewProfessionnel.SelectedRows[0].DataBoundItem
                 );
             form11.Show();
         }

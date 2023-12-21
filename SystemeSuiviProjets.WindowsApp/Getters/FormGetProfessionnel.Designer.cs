@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace SystemeSuiviProjets
 {
-    partial class FormGetEmploye
+    partial class FormGetProfessionnel
     {
         /// <summary>
         /// Required designer variable.
@@ -120,7 +120,7 @@ namespace SystemeSuiviProjets
             Controls.Add(tableLayoutPanel1);
             Name = "FormListeEmploye";
             Text = "Ajouter des employés";
-            Load += FormGetEmploye_Load;
+            Load += FormGetProfessionnel_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);

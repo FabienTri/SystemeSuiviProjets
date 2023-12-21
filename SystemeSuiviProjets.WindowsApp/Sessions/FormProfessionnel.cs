@@ -11,9 +11,9 @@ using SystemeSuiviProjets.Core;
 
 namespace SystemeSuiviProjets
 {
-    public partial class FormEmploye : Form
+    public partial class FormProfessionnel : Form
     {
-        public FormEmploye(List<Projet> projets)
+        public FormProfessionnel(List<Projet> projets)
         {
             InitializeComponent();
             this.projets = projets;
@@ -34,7 +34,7 @@ namespace SystemeSuiviProjets
             saveButton.Text = buttonPressed ? "Sauvegarder" : "Modifier";
         }
 
-        private void FormEmploye_Load(object sender, EventArgs e)
+        private void FormProfessionnel_Load(object sender, EventArgs e)
         {
             chartPresence.Series.Clear(); // Efface les données du graphique
 

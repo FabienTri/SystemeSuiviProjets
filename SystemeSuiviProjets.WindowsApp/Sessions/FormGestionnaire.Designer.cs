@@ -45,7 +45,7 @@ namespace SystemeSuiviProjets
             dataGridViewProjet = new DataGridView();
             label1 = new Label();
             tableLayoutPanel4 = new TableLayoutPanel();
-            dataGridViewEmploye = new DataGridView();
+            dataGridViewProfessionnel = new DataGridView();
             label2 = new Label();
             tableLayoutPanel9 = new TableLayoutPanel();
             buttonSetEmploye = new Button();
@@ -109,7 +109,7 @@ namespace SystemeSuiviProjets
             tableLayoutPanel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProjet).BeginInit();
             tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewEmploye).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProfessionnel).BeginInit();
             tableLayoutPanel9.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
@@ -312,7 +312,7 @@ namespace SystemeSuiviProjets
             // 
             tableLayoutPanel4.ColumnCount = 1;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Controls.Add(dataGridViewEmploye, 0, 1);
+            tableLayoutPanel4.Controls.Add(dataGridViewProfessionnel, 0, 1);
             tableLayoutPanel4.Controls.Add(label2, 0, 0);
             tableLayoutPanel4.Controls.Add(tableLayoutPanel9, 0, 2);
             tableLayoutPanel4.Dock = DockStyle.Fill;
@@ -329,19 +329,19 @@ namespace SystemeSuiviProjets
             // 
             // dataGridViewEmploye
             // 
-            dataGridViewEmploye.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewEmploye.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewEmploye.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewEmploye.Dock = DockStyle.Fill;
-            dataGridViewEmploye.Location = new Point(3, 53);
-            dataGridViewEmploye.Name = "dataGridViewEmploye";
-            dataGridViewEmploye.ReadOnly = true;
-            dataGridViewEmploye.RowHeadersVisible = false;
-            dataGridViewEmploye.RowHeadersWidth = 82;
-            dataGridViewEmploye.RowTemplate.Height = 41;
-            dataGridViewEmploye.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewEmploye.Size = new Size(1726, 181);
-            dataGridViewEmploye.TabIndex = 0;
+            dataGridViewProfessionnel.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewProfessionnel.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewProfessionnel.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewProfessionnel.Dock = DockStyle.Fill;
+            dataGridViewProfessionnel.Location = new Point(3, 53);
+            dataGridViewProfessionnel.Name = "dataGridViewEmploye";
+            dataGridViewProfessionnel.ReadOnly = true;
+            dataGridViewProfessionnel.RowHeadersVisible = false;
+            dataGridViewProfessionnel.RowHeadersWidth = 82;
+            dataGridViewProfessionnel.RowTemplate.Height = 41;
+            dataGridViewProfessionnel.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewProfessionnel.Size = new Size(1726, 181);
+            dataGridViewProfessionnel.TabIndex = 0;
             // 
             // label2
             // 
@@ -378,7 +378,7 @@ namespace SystemeSuiviProjets
             buttonSetEmploye.TabIndex = 0;
             buttonSetEmploye.Text = "Ajouter";
             buttonSetEmploye.UseVisualStyleBackColor = true;
-            buttonSetEmploye.Click += buttonSetEmploye_Click;
+            buttonSetEmploye.Click += buttonSetProfessionnel_Click;
             // 
             // buttonGetEmploye
             // 
@@ -926,7 +926,7 @@ namespace SystemeSuiviProjets
             ((System.ComponentModel.ISupportInitialize)dataGridViewProjet).EndInit();
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewEmploye).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProfessionnel).EndInit();
             tableLayoutPanel9.ResumeLayout(false);
             tableLayoutPanel6.ResumeLayout(false);
             tableLayoutPanel7.ResumeLayout(false);
@@ -953,7 +953,7 @@ namespace SystemeSuiviProjets
         private TableLayoutPanel tableLayoutPanel2;
         private DataGridView dataGridViewProjet;
         private TableLayoutPanel tableLayoutPanel4;
-        private DataGridView dataGridViewEmploye;
+        private DataGridView dataGridViewProfessionnel;
         private TableLayoutPanel tableLayoutPanel3;
         private Label label1;
         private Label label2;

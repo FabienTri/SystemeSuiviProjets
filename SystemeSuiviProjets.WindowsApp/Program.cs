@@ -24,14 +24,16 @@ namespace SystemeSuiviProjets
              {
                  services.AddDbContext < SystèmeSuiviProjetsContext > (options => options.UseSqlServer(@"Server=.;Database=SystèmeSuiviProjetsDB;Trusted_Connection=True;"));
                  services.AddScoped<IClientRepository, ClientRepository>();
-                 services.AddScoped<IEmployéRepository, EmployéRepository>();
+                 services.AddScoped<IProfessionnelRepository, ProfessionnelRepository>();
                  services.AddScoped<IProjetRepository, ProjetRepository>();
+                 services.AddScoped<IUtilisateurRepository, UtilisateurRepository>();
+                 services.AddScoped<IFeuillePrésenceRepository, FeuillePrésenceRepository>();
                  services.AddScoped<ISessionService, SessionService>();
 
              
                  services.AddSingleton<FormConnexion>();
                  services.AddSingleton<FormGestionnaire>();
-                 services.AddSingleton<FormEmploye>();
+                 services.AddSingleton<FormProfessionnel>();
                  services.AddSingleton<FormClient>();
              });
 
@@ -43,7 +45,7 @@ namespace SystemeSuiviProjets
                 {
                     var forms = services.GetRequiredService<FormConnexion>();
                     //create a client in db
-                    string nomConnexon = "admin";
+                    string nomConnexion = "admin";
                     string motDePasse = "admin";
                     string adresse = "123 rue de la rue";
                     string téléphone = "123456789";
@@ -61,7 +63,7 @@ namespace SystemeSuiviProjets
                     long budget = 1000;
 
 
-                    var professionnel = new Professionnel(nomConnexon, motDePasse, nom, prénom, adresse, téléphone, dateEmbauche);
+                    var professionnel = new Professionnel(nomConnexion, motDePasse, nom, prénom, adresse, téléphone, dateEmbauche);
                     var client = new Client(cliNomConnexion, cliMotDePasse, cliNomCompagnie, cliAdresse, cliTéléphone);
                     var projet = new Projet(client, dateProj, budget);
                     

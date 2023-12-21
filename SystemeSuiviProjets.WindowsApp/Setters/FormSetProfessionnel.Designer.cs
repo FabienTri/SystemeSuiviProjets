@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace SystemeSuiviProjets
 {
-    partial class FormSetEmploye
+    partial class FormSetProfessionnel
     {
         /// <summary>
         /// Required designer variable.
@@ -282,7 +282,7 @@ namespace SystemeSuiviProjets
             Name = "FormSetEmploye";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form5";
-            Load += FormSetEmploye_Load;
+            Load += FormSetProfessionnel_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
