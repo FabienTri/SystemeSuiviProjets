@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Windows.Forms;
 using SystemeSuiviProjets.Core.Interfaces;
+using SystemeSuiviProjets.Core.Services;
 using SystemeSuiviProjets.Infrastructure;
 using SystemeSuiviProjets.Infrastructure.Repositories;
 
@@ -22,6 +23,10 @@ namespace SystemeSuiviProjets
              {
                  services.AddDbContext < SystèmeSuiviProjetsContext > (options => options.UseSqlServer(@"Server=.;Database=SystèmeSuiviProjetsDB;Trusted_Connection=True;"));
                  services.AddScoped<IClientRepository, ClientRepository>();
+                 services.AddScoped<IEmployéRepository, EmployéRepository>();
+                 services.AddScoped<IProjetRepository, ProjetRepository>();
+                 services.AddScoped<ISessionService, SessionService>();
+
              
                  services.AddSingleton<FormConnexion>();
                  services.AddSingleton<FormGestionnaire>();
