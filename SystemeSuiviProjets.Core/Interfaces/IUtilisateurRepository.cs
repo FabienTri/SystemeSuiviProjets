@@ -7,5 +7,7 @@ namespace SystemeSuiviProjets.Core.Interfaces
     {
         Task<Utilisateur> GetByIdWithSessionsAsync(int id);
         Utilisateur GetByIdWithSessions(int id);
+        Task<Utilisateur> GetByNomConnexionWithSessionsAsync(string NomConnexion);
+        Utilisateur GetByNomConnexionWithSessions(string NomConnexion);
     }
 }

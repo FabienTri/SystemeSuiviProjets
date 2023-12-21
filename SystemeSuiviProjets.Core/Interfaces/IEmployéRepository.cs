@@ -9,6 +9,7 @@ namespace SystemeSuiviProjets.Core.Interfaces
 {
     public interface IEmployéRepository : IAsyncRepository<Employé>, IRepository<Employé>
     {
-
+        Task<Employé> GetByIdWithSessionsAsync(int id);
+        Employé GetByIdWithSessions(int id);
     }
 }

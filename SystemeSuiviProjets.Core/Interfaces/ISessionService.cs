@@ -13,8 +13,8 @@ namespace SystemeSuiviProjets.Core.Interfaces
         Task<IReadOnlyList<Projet>> GetAllProjets();
         Task<IReadOnlyList<FeuillePrésence>> GetAllFeuillesPrésence();
 
-        Task<bool> ValiderInfoConnexion(string username, string password);
-        Task<string> GetTypeSession(string username);
+        bool ValiderInfoConnexion(string username, string password);
+        string GetTypeSession(string username);
 
     }
 }

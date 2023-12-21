@@ -8,9 +8,5 @@ namespace SystemeSuiviProjets.Core.Interfaces
     {
         Task<Client> GetByIdWithSessionsAsync(int id);
         Client GetByIdWithSessions(int id);
-
-        //List all clients
-        Task<IReadOnlyList<Client>> ListAllAsync();
-
     }
 }
