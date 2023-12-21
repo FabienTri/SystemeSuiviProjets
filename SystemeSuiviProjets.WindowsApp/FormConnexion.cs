@@ -34,10 +34,10 @@ namespace SystemeSuiviProjets
 
         private void button1_Click(object sender, EventArgs e)
         {
-            auth = _SessionService.ValiderInfoConnexion(textBoxUsername.Text, textBoxPassword.Text).Result;
+            auth = _SessionService.ValiderInfoConnexion(textBoxUsername.Text, textBoxPassword.Text);
             if (auth)
             {
-                typeSession = _SessionService.GetTypeSession(textBoxUsername.Text).Result;
+                typeSession = _SessionService.GetTypeSession(textBoxUsername.Text);
 
                 listeProjets = (List<Projet>)_SessionService.GetAllProjets().Result;
                 switch (typeSession)
