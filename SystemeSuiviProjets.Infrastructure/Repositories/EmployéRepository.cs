@@ -9,30 +9,21 @@ using SystemeSuiviProjets.Core.Interfaces;
 
 namespace SystemeSuiviProjets.Infrastructure.Repositories
 {
-    public class EmployéRepository : EfRepository<Employé>, IEmployéRepository
+    public class EmployéRepository(SystèmeSuiviProjetsContext systèmeSuiviProjetsContext)
+        : EfRepository<Employé>(systèmeSuiviProjetsContext), IEmployéRepository
     {
-        public EmployéRepository(SystèmeSuiviProjetsContext systèmeSuiviProjetsContext) : base(systèmeSuiviProjetsContext)
-        {
-        }
-
         public Employé GetByIdWithSessions(int id)
         {
-            return _SystemeSuiviProjetsContext.Employés.Where(x => x.Id == id).FirstOrDefault();
+            return _SystemeSuiviProjetsContext.Employés
+                .Include(e => e.Sessions)
+                .FirstOrDefault(e => e.Id == id);
         }
 
         public async Task<Employé> GetByIdWithSessionsAsync(int id)
         {
-            return await _SystemeSuiviProjetsContext.Employés.FindAsync(id);
-        }
-
-        public async Task<IReadOnlyList<Employé>> ListAllAsync()
-        {
-            return await _SystemeSuiviProjetsContext.Employés.ToListAsync();
-        }
-
-        public IReadOnlyList<Employé> ListAll()
-        {
-            return _SystemeSuiviProjetsContext.Employés.ToList();
+            return await _SystemeSuiviProjetsContext.Employés
+                .Include(e => e.Sessions)
+                .FirstOrDefaultAsync(e => e.Id == id);
         }
     }
 }
