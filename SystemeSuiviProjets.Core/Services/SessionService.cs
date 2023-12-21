@@ -8,13 +8,15 @@ using SystemeSuiviProjets.Core.Interfaces;
 
 namespace SystemeSuiviProjets.Core.Services
 {
-    public class SessionService : ISessionService
+    public class SessionService(IClientRepository clientRepository, IProfessionnelRepository professionnelRepository,
+        IFeuillePrésenceRepository feuillePrésenceRepository, IProjetRepository projetRepository,
+        IUtilisateurRepository utilisateurRepository) : ISessionService
     {
-        private readonly IClientRepository _clientRepository;
-        private readonly IEmployéRepository _employéRepository;
-        private readonly IFeuillePrésenceRepository _feuillePrésenceRepository;
-        private readonly IProjetRepository _projetRepository;
-        private readonly IUtilisateurRepository _utilisateurRepository;
+        private readonly IClientRepository _clientRepository = clientRepository;
+        private readonly IProfessionnelRepository _professionnelRepository = professionnelRepository;
+        private readonly IFeuillePrésenceRepository _feuillePrésenceRepository = feuillePrésenceRepository;
+        private readonly IProjetRepository _projetRepository = projetRepository;
+        private readonly IUtilisateurRepository _utilisateurRepository = utilisateurRepository;
 
         public Task<IReadOnlyList<Client>> GetAllClients()
         {
@@ -23,9 +25,9 @@ namespace SystemeSuiviProjets.Core.Services
             return _clientRepository.ListAllAsync();
         }
 
-        public Task<IReadOnlyList<Employé>> GetAllEmployés()
+        public Task<IReadOnlyList<Professionnel>> GetAllProfessionnels()
         {
-            return _employéRepository.ListAllAsync();
+            return _professionnelRepository.ListAllAsync();
         }
 
         public Task<IReadOnlyList<FeuillePrésence>> GetAllFeuillesPrésence()
@@ -45,24 +47,15 @@ namespace SystemeSuiviProjets.Core.Services
             throw new NotImplementedException();
         }
 
-        public bool ValiderInfoConnexion(string username, string password)
+        public Utilisateur ValiderInfoConnexion(string username, string password)
         {
-            Debug.WriteLine("ValiderInfoConnexion : username=" + username + ", password=" + password);
-            try {            
-                Utilisateur utilisateur = _utilisateurRepository.GetByNomConnexionWithSessions(username);
+            Utilisateur utilisateur = _utilisateurRepository.GetByNomConnexionWithSessions(username);
 
-                if (utilisateur != null)
-                {
-                    if (utilisateur.MotDePasse == password)
-                    {
-                        return true;
-                    }
-                }
-            } catch(Exception e)
+            if (utilisateur != null && utilisateur.MotDePasse == password)
             {
-                Debug.WriteLine("Exception : " + e.Message);
+                return utilisateur;
             }
-            return false;
+            return null;
         }
     }
 }

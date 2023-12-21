@@ -8,12 +8,12 @@ namespace SystemeSuiviProjets.Core.Interfaces
 {
     public interface ISessionService
     {
-        Task<IReadOnlyList<Employé>> GetAllEmployés();
+        Task<IReadOnlyList<Professionnel>> GetAllProfessionnels();
         Task<IReadOnlyList<Client>> GetAllClients();
         Task<IReadOnlyList<Projet>> GetAllProjets();
         Task<IReadOnlyList<FeuillePrésence>> GetAllFeuillesPrésence();
 
-        bool ValiderInfoConnexion(string username, string password);
+        Utilisateur ValiderInfoConnexion(string username, string password);
         string GetTypeSession(string username);
 
     }
