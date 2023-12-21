@@ -22,13 +22,11 @@ namespace SystemeSuiviProjets
              {
                  services.AddDbContext < SystèmeSuiviProjetsContext > (options => options.UseSqlServer(@"Server=.;Database=SystèmeSuiviProjetsDB;Trusted_Connection=True;"));
                  services.AddScoped<IClientRepository, ClientRepository>();
+             
                  services.AddSingleton<FormConnexion>();
                  services.AddSingleton<FormGestionnaire>();
                  services.AddSingleton<FormEmploye>();
                  services.AddSingleton<FormClient>();
-
-
-
              });
 
             var host = builder.Build();

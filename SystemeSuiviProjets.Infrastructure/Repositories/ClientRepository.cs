@@ -18,7 +18,6 @@ namespace SystemeSuiviProjets.Infrastructure.Repositories
         public Client GetByIdWithSessions(int id)
         {
             return _SystemeSuiviProjetsContext.Clients
-              .Include(c => c.Session)
               .FirstOrDefault(c => c.Id == id);
         }
         
@@ -26,8 +25,21 @@ namespace SystemeSuiviProjets.Infrastructure.Repositories
         public Task<Client> GetByIdWithSessionsAsync(int id)
         {
             return _SystemeSuiviProjetsContext.Clients
-              .Include(c => c.Session)
               .FirstOrDefaultAsync(c => c.Id == id);
         }
+
+        public async Task<IReadOnlyList<Client>> ListAllAsync()
+        {
+            return await _SystemeSuiviProjetsContext.Clients
+                .ToListAsync();
+        }
+
+        public IReadOnlyList<Client> ListAll()
+        {
+            return _SystemeSuiviProjetsContext.Clients
+                .ToList();
+        }
+
+
     }
 }

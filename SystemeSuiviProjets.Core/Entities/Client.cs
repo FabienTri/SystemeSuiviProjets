@@ -10,10 +10,7 @@ namespace SystemeSuiviProjets.Core
         public string NomCompagnie { get; set; } = nomCompagnie;
         public string Adresse { get; set; } = adresse;
         public string Téléphone { get; set; } = téléphone;
-
         public List<Projet> Projets { get; private set; } = [];
-        public Session? Session { get; set; }
-
         public void AddProjet(Projet projet)
         {
             Projets.Add(projet);
