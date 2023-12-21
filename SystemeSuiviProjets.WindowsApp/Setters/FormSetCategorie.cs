@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SystemeSuiviProjets.WindowsApp
+namespace SystemeSuiviProjets.Setters
 {
-    public partial class Form1 : Form
+    public partial class FormSetCategorie : Form
     {
-        public Form1()
+        public FormSetCategorie()
         {
             InitializeComponent();
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
