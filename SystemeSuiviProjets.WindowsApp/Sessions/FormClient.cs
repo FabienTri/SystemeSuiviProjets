@@ -7,27 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SystemeSuiviProjets.Core;
 
 namespace SystemeSuiviProjets
 {
     public partial class FormClient : Form
     {
-        public FormClient()
+        public FormClient(List<Projet> projets)
         {
             InitializeComponent();
+            this.projets = projets;
         }
 
-        List<Projet> listeProjets = new List<Projet>
-        {
-            new Projet ( "Projet 1",  DateTime.Now,  DateTime.Now.AddDays(30), 1000 ),
-            new Projet ( "Projet 2",  DateTime.Now, DateTime.Now.AddDays(45), 1000 ),
-        };
-
+        private List<Projet> projets;
 
 
         private void FormClient_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = listeProjets.ToArray();
+            dataGridView1.DataSource = projets.ToArray();
         }
 
         private void buttonNewProject_Click(object sender, EventArgs e)
@@ -54,8 +51,8 @@ namespace SystemeSuiviProjets
                     "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 if (result == DialogResult.Yes)
                 {
-                    listeProjets.RemoveAt(dataGridView1.SelectedRows[0].Index);
-                    dataGridView1.DataSource = listeProjets.ToArray();
+                    projets.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                    dataGridView1.DataSource = projets.ToArray();
                 }
             }
             else

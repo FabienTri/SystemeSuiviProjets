@@ -13,15 +13,19 @@ namespace SystemeSuiviProjets
     public partial class FormSetLignePresence : Form
     {
 
-        Projet projet;
-        public FormSetLignePresence(Projet projet)
+        public FormSetLignePresence()
         {
             InitializeComponent();
-            this.projet = projet;
         }
 
-        FeuillePresence FeuillePresence = new FeuillePresence(DateTime.Now, DateTime.Now, new Employe("123", "nom", "prenom", DateTime.Now, "adresse", "telephone"), new Projet("nom", DateTime.Now, DateTime.Now, 100));
+        private void buttonConfirm_Click(object sender, EventArgs e)
+        {
+            
+        }
 
-
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

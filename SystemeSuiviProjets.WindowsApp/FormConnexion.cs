@@ -1,20 +1,26 @@
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using SystemeSuiviProjets.Core;
+using SystemeSuiviProjets.Core.Interfaces;
 
 namespace SystemeSuiviProjets
 {
     public partial class FormConnexion : Form
     {
-        public FormConnexion()
+        private readonly ISessionService _SessionService;
+        private List<Client> listeClients;
+        private List<Employé> listeEmployes;
+        private List<Projet> listeProjets;
+        private bool auth;
+        private string typeSession;
+
+        public FormConnexion(ISessionService session)
         {
             InitializeComponent();
+            _SessionService = session;
 
         }
-
-        FormClient form2 = new FormClient();
-        FormEmploye form3 = new FormEmploye();
-        FormGestionnaire form4 = new FormGestionnaire();
-        FormSetEmploye form5 = new FormSetEmploye();
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -28,7 +34,30 @@ namespace SystemeSuiviProjets
 
         private void button1_Click(object sender, EventArgs e)
         {
-            form4.Show();
+            auth = _SessionService.ValiderInfoConnexion(textBoxUsername.Text, textBoxPassword.Text).Result;
+            if (auth)
+            {
+                typeSession = _SessionService.GetTypeSession(textBoxUsername.Text).Result;
+
+                listeProjets = (List<Projet>)_SessionService.GetAllProjets().Result;
+                switch (typeSession)
+                {
+                    case "client":
+                        new FormClient(listeProjets).Show();
+                        break;
+                    case "employé":
+
+                        new FormEmploye(listeProjets).Show();
+                        break;
+                    case "gestionnaire":
+
+                        listeClients = (List<Client>)_SessionService.GetAllClients().Result;
+                        listeEmployes = (List<Employé>)_SessionService.GetAllEmployés().Result;
+                        listeProjets = (List<Projet>)_SessionService.GetAllProjets().Result;
+                        new FormGestionnaire(listeProjets, listeEmployes, listeClients).Show();
+                        break;
+                }
+            }
         }
     }
 }

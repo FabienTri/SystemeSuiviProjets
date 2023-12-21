@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Numerics;
 using SystemeSuiviProjets.SharedKernel.Interfaces;
 
 namespace SystemeSuiviProjets.Core
@@ -11,6 +12,8 @@ namespace SystemeSuiviProjets.Core
         public string Téléphone { get; set; } = téléphone;
 
         public List<Projet> Projets { get; private set; } = [];
+        public Session? Session { get; set; }
+
         public void AddProjet(Projet projet)
         {
             Projets.Add(projet);

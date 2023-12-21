@@ -7,25 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SystemeSuiviProjets.Core;
 
 namespace SystemeSuiviProjets
 {
     public partial class FormEmploye : Form
     {
-        public FormEmploye()
+        public FormEmploye(List<Projet> projets)
         {
             InitializeComponent();
+            this.projets = projets;
         }
 
+        private List<Projet> projets;
+
         Boolean buttonPressed = false;
-        List<Projet> listeProjets = new List<Projet>
-        {
-            new Projet ("Projet 1",  DateTime.Now,  DateTime.Now.AddDays(30), 10000),
-            new Projet ("Projet 2",  DateTime.Now,  DateTime.Now.AddDays(45), 20000),
-            new Projet ("Projet 3",  DateTime.Now,  DateTime.Now.AddDays(45), 30000),
-
-
-        };
 
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -54,12 +50,15 @@ namespace SystemeSuiviProjets
             chartPresence.Series["Heures travaillées"].Points.AddXY("Projet 3 (h)", 30);
 
             chartPresence.Series["Heures travaillées"].IsValueShownAsLabel = true;
-            dataGridView1.DataSource = listeProjets.ToArray();
+            dataGridView1.DataSource = projets.ToArray();
         }
 
         private void buttonAddPresence_Click(object sender, EventArgs e)
         {
-            FormGetFeuillePresence form8 = new FormGetFeuillePresence();
+            FormGetFeuillePresence form8 = new FormGetFeuillePresence(
+                //get feuilles de présence du projet sélectionné
+                feuillesPresence: (List<FeuillePrésence>)dataGridView1.SelectedRows[0].DataBoundItem
+                );
             form8.ShowDialog();
         }
     }
