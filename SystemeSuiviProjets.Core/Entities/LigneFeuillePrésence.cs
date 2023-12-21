@@ -7,7 +7,6 @@ namespace SystemeSuiviProjets.Core
         public int FeuillePrésenceId { get; set; }
         public FeuillePrésence FeuillePrésence { get; private set; }
 
-        public int ProjetId { get; set; }
         public Projet Projet { get; private set; }
 
         public TypeTarification TypeTarification { get; set; }

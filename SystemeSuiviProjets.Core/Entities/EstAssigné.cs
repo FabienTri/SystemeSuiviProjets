@@ -5,7 +5,6 @@ namespace SystemeSuiviProjets.Core
 {
     public class EstAssigné : BaseEntity
     {
-        public int ProfessionnelId { get; set; }
         public Professionnel Professionnel { get; private set; }
 
         public int ProjetId { get; set; }
