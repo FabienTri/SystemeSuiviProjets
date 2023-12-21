@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Windows.Forms;
+using SystemeSuiviProjets.Core;
 using SystemeSuiviProjets.Core.Interfaces;
 using SystemeSuiviProjets.Core.Services;
 using SystemeSuiviProjets.Infrastructure;
@@ -41,6 +42,22 @@ namespace SystemeSuiviProjets
                 try
                 {
                     var forms = services.GetRequiredService<FormConnexion>();
+                    //create a client in db
+                    string nomConnexon = "admin";
+                    string motDePasse = "admin";
+                    string adresse = "123 rue de la rue";
+                    string téléphone = "123456789";
+                    string nom = "admin";
+                    string prénom = "admin";
+                    DateOnly dateEmbauche = DateOnly.FromDateTime(DateTime.Now);
+
+                    var professionnel = new Professionnel(nomConnexon, motDePasse, nom, prénom, adresse, téléphone, dateEmbauche);
+
+                    SystèmeSuiviProjetsContext systèmeSuiviProjetsContext = new SystèmeSuiviProjetsContext();
+                    systèmeSuiviProjetsContext.Professionnels.Add(professionnel);
+                    systèmeSuiviProjetsContext.SaveChanges();
+
+
                     Application.Run(forms);
                 }
                 catch (Exception ex)

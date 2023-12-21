@@ -10,6 +10,6 @@ namespace SystemeSuiviProjets.Core
         public string Prénom { get; set; } = prénom;
         public string Adresse { get; set; } = adresse;
         public string Téléphone { get; set; } = téléphone;
-        public DateOnly DateEmbauche { get; private set; } = dateEmbauche;
+        public DateOnly DateEmbauche { get; set; } = dateEmbauche;
     }
 }
