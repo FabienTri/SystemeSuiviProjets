@@ -17,12 +17,22 @@ namespace SystemeSuiviProjets.Infrastructure.Repositories
 
         public async Task<IReadOnlyList<Projet>> ListAllAsync()
         {
-            return await _SystemeSuiviProjetsContext.Projet.ToListAsync();
+            return await _SystemeSuiviProjetsContext.Projets.ToListAsync();
         }
 
         public IReadOnlyList<Projet> ListAll()
         {
-            return _SystemeSuiviProjetsContext.Projet.ToList();
+            return _SystemeSuiviProjetsContext.Projets.ToList();
+        }
+
+        public Task<Projet> GetByIdWithSessionsAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Projet GetByIdWithSessions(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
