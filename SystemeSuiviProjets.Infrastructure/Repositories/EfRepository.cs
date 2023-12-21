@@ -10,13 +10,20 @@ using SystemeSuiviProjets.SharedKernel.Interfaces;
 
 namespace SystemeSuiviProjets.Infrastructure.Repositories 
 {
-    public class EfRepository<T> : IAsyncRepository<T> where T : BaseEntity, IAggregateRoot
+    public class EfRepository<T> : IAsyncRepository<T>, IRepository<T> where T : BaseEntity, IAggregateRoot
     {
         protected readonly SystèmeSuiviProjetsContext _SystemeSuiviProjetsContext;
 
         public EfRepository(SystèmeSuiviProjetsContext systemeSuiviProjetsContext)
         {
             _SystemeSuiviProjetsContext = systemeSuiviProjetsContext;
+        }
+
+        public T Add(T entity)
+        {
+            _SystemeSuiviProjetsContext.Set<T>().Add(entity);
+            _SystemeSuiviProjetsContext.SaveChanges();
+            return entity;
         }
 
         public async Task<T> AddAsync(T entity)
@@ -26,9 +33,20 @@ namespace SystemeSuiviProjets.Infrastructure.Repositories
             return entity;
         }
 
+        public int Count(ISpecification<T> spec)
+        {
+            return ApplySpecification(spec).Count();
+        }
+
         public async Task<int> CountAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).CountAsync();
+        }
+
+        public int Delete(T entity)
+        {
+            _SystemeSuiviProjetsContext.Set<T>().Remove(entity);
+            return _SystemeSuiviProjetsContext.SaveChanges();
         }
 
         public async Task DeleteAsync(T entity)
@@ -44,7 +62,7 @@ namespace SystemeSuiviProjets.Infrastructure.Repositories
 
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+            return _SystemeSuiviProjetsContext.Set<T>().Find(id);
         }
 
         public async Task<T> GetByIdAsync(int id)
@@ -67,6 +85,11 @@ namespace SystemeSuiviProjets.Infrastructure.Repositories
         {
             return await
             _SystemeSuiviProjetsContext.Set<T>().ToListAsync();
+        }
+
+        public int Update(T entity)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task UpdateAsync(T entity)
