@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SystemeSuiviProjets.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateSystèmeSuiviProjetsDB : Migration
+    public partial class CreateSystemeSuiviProjetsDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,7 +31,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SystèmeFacturationClients",
+                name: "SystèmesFacturationClients",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -40,11 +40,11 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SystèmeFacturationClients", x => x.Id);
+                    table.PrimaryKey("PK_SystèmesFacturationClients", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "SystèmePaiementProfessionnels",
+                name: "SystèmesPaiementProfessionnels",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -52,11 +52,11 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SystèmePaiementProfessionnels", x => x.Id);
+                    table.PrimaryKey("PK_SystèmesPaiementProfessionnels", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Utilisateur",
+                name: "Utilisateurs",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -75,11 +75,11 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Utilisateur", x => x.Id);
+                    table.PrimaryKey("PK_Utilisateurs", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "FeuillePrésence",
+                name: "FeuillesPrésence",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -93,16 +93,16 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FeuillePrésence", x => x.Id);
+                    table.PrimaryKey("PK_FeuillesPrésence", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FeuillePrésence_SystèmePaiementProfessionnels_SystèmePaiementProfessionnelsId",
+                        name: "FK_FeuillesPrésence_SystèmesPaiementProfessionnels_SystèmePaiementProfessionnelsId",
                         column: x => x.SystèmePaiementProfessionnelsId,
-                        principalTable: "SystèmePaiementProfessionnels",
+                        principalTable: "SystèmesPaiementProfessionnels",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_FeuillePrésence_Utilisateur_ProfessionnelId",
+                        name: "FK_FeuillesPrésence_Utilisateurs_ProfessionnelId",
                         column: x => x.ProfessionnelId,
-                        principalTable: "Utilisateur",
+                        principalTable: "Utilisateurs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -127,15 +127,15 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProfessionnelEstDansCatégorie_Utilisateur_ProfessionnelId",
+                        name: "FK_ProfessionnelEstDansCatégorie_Utilisateurs_ProfessionnelId",
                         column: x => x.ProfessionnelId,
-                        principalTable: "Utilisateur",
+                        principalTable: "Utilisateurs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Projet",
+                name: "Projets",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -147,17 +147,17 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Projet", x => x.Id);
+                    table.PrimaryKey("PK_Projets", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Projet_Utilisateur_ClientId",
+                        name: "FK_Projets_Utilisateurs_ClientId",
                         column: x => x.ClientId,
-                        principalTable: "Utilisateur",
+                        principalTable: "Utilisateurs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Session",
+                name: "Sessions",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -168,11 +168,11 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Session", x => x.Id);
+                    table.PrimaryKey("PK_Sessions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Session_Utilisateur_UtilisateurId",
+                        name: "FK_Sessions_Utilisateurs_UtilisateurId",
                         column: x => x.UtilisateurId,
-                        principalTable: "Utilisateur",
+                        principalTable: "Utilisateurs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -191,20 +191,20 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_EstAssigné", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EstAssigné_Projet_ProjetId",
+                        name: "FK_EstAssigné_Projets_ProjetId",
                         column: x => x.ProjetId,
-                        principalTable: "Projet",
+                        principalTable: "Projets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_EstAssigné_Utilisateur_ProfessionnelId",
+                        name: "FK_EstAssigné_Utilisateurs_ProfessionnelId",
                         column: x => x.ProfessionnelId,
-                        principalTable: "Utilisateur",
+                        principalTable: "Utilisateurs",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "LigneFeuillePrésence",
+                name: "LignesFeuillePrésence",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -218,17 +218,17 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LigneFeuillePrésence", x => x.Id);
+                    table.PrimaryKey("PK_LignesFeuillePrésence", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LigneFeuillePrésence_FeuillePrésence_FeuillePrésenceId",
+                        name: "FK_LignesFeuillePrésence_FeuillesPrésence_FeuillePrésenceId",
                         column: x => x.FeuillePrésenceId,
-                        principalTable: "FeuillePrésence",
+                        principalTable: "FeuillesPrésence",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_LigneFeuillePrésence_Projet_ProjetId",
+                        name: "FK_LignesFeuillePrésence_Projets_ProjetId",
                         column: x => x.ProjetId,
-                        principalTable: "Projet",
+                        principalTable: "Projets",
                         principalColumn: "Id");
                 });
 
@@ -243,23 +243,23 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 column: "ProjetId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FeuillePrésence_ProfessionnelId",
-                table: "FeuillePrésence",
+                name: "IX_FeuillesPrésence_ProfessionnelId",
+                table: "FeuillesPrésence",
                 column: "ProfessionnelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FeuillePrésence_SystèmePaiementProfessionnelsId",
-                table: "FeuillePrésence",
+                name: "IX_FeuillesPrésence_SystèmePaiementProfessionnelsId",
+                table: "FeuillesPrésence",
                 column: "SystèmePaiementProfessionnelsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LigneFeuillePrésence_FeuillePrésenceId",
-                table: "LigneFeuillePrésence",
+                name: "IX_LignesFeuillePrésence_FeuillePrésenceId",
+                table: "LignesFeuillePrésence",
                 column: "FeuillePrésenceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LigneFeuillePrésence_ProjetId",
-                table: "LigneFeuillePrésence",
+                name: "IX_LignesFeuillePrésence_ProjetId",
+                table: "LignesFeuillePrésence",
                 column: "ProjetId");
 
             migrationBuilder.CreateIndex(
@@ -273,13 +273,13 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 column: "ProfessionnelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Projet_ClientId",
-                table: "Projet",
+                name: "IX_Projets_ClientId",
+                table: "Projets",
                 column: "ClientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Session_UtilisateurId",
-                table: "Session",
+                name: "IX_Sessions_UtilisateurId",
+                table: "Sessions",
                 column: "UtilisateurId");
         }
 
@@ -290,31 +290,31 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                 name: "EstAssigné");
 
             migrationBuilder.DropTable(
-                name: "LigneFeuillePrésence");
+                name: "LignesFeuillePrésence");
 
             migrationBuilder.DropTable(
                 name: "ProfessionnelEstDansCatégorie");
 
             migrationBuilder.DropTable(
-                name: "Session");
+                name: "Sessions");
 
             migrationBuilder.DropTable(
-                name: "SystèmeFacturationClients");
+                name: "SystèmesFacturationClients");
 
             migrationBuilder.DropTable(
-                name: "FeuillePrésence");
+                name: "FeuillesPrésence");
 
             migrationBuilder.DropTable(
-                name: "Projet");
+                name: "Projets");
 
             migrationBuilder.DropTable(
                 name: "Catégories");
 
             migrationBuilder.DropTable(
-                name: "SystèmePaiementProfessionnels");
+                name: "SystèmesPaiementProfessionnels");
 
             migrationBuilder.DropTable(
-                name: "Utilisateur");
+                name: "Utilisateurs");
         }
     }
 }

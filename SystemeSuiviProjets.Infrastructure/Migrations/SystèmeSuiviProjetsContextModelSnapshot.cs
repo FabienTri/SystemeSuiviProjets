@@ -114,7 +114,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
 
                     b.HasIndex("SystèmePaiementProfessionnelsId");
 
-                    b.ToTable("FeuillePrésence");
+                    b.ToTable("FeuillesPrésence");
                 });
 
             modelBuilder.Entity("SystemeSuiviProjets.Core.LigneFeuillePrésence", b =>
@@ -149,7 +149,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
 
                     b.HasIndex("ProjetId");
 
-                    b.ToTable("LigneFeuillePrésence");
+                    b.ToTable("LignesFeuillePrésence");
                 });
 
             modelBuilder.Entity("SystemeSuiviProjets.Core.ProfessionnelEstDansCatégorie", b =>
@@ -202,7 +202,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
 
                     b.HasIndex("ClientId");
 
-                    b.ToTable("Projet");
+                    b.ToTable("Projets");
                 });
 
             modelBuilder.Entity("SystemeSuiviProjets.Core.Session", b =>
@@ -226,7 +226,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
 
                     b.HasIndex("UtilisateurId");
 
-                    b.ToTable("Session");
+                    b.ToTable("Sessions");
                 });
 
             modelBuilder.Entity("SystemeSuiviProjets.Core.SystèmeFacturationClients", b =>
@@ -242,7 +242,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SystèmeFacturationClients");
+                    b.ToTable("SystèmesFacturationClients");
                 });
 
             modelBuilder.Entity("SystemeSuiviProjets.Core.SystèmePaiementProfessionnels", b =>
@@ -255,7 +255,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("SystèmePaiementProfessionnels");
+                    b.ToTable("SystèmesPaiementProfessionnels");
                 });
 
             modelBuilder.Entity("SystemeSuiviProjets.Core.Utilisateur", b =>
@@ -279,7 +279,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Utilisateur");
+                    b.ToTable("Utilisateurs");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("Utilisateur");
 
@@ -299,7 +299,7 @@ namespace SystemeSuiviProjets.Infrastructure.Migrations
                     b.Property<string>("Téléphone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("Utilisateur", t =>
+                    b.ToTable("Utilisateurs", t =>
                         {
                             t.Property("Adresse")
                                 .HasColumnName("Client_Adresse");
